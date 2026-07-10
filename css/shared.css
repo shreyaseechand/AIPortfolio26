@@ -745,7 +745,9 @@ a { color: inherit; text-decoration: none; }
   .wrap { padding-inline: 20px; }
   .project-hero__cta .btn, .cta__card .btn { width: 100%; }
   .p-meta { gap: 20px 32px; }
-  .rcard { width: 76vw; }
+  /* Narrow cards wrap longer titles onto more lines. A fixed 3:4 box clips them,
+     so let the tallest card set the row height and the rest stretch to match. */
+  .rcard { width: 76vw; aspect-ratio: auto; min-height: calc(76vw * 4 / 3); }
   .related__arrow { display: none; }   /* swipe on mobile; dots still show position */
   .footer__top { flex-direction: column; }
   .stat-band__grid { gap: 22px 40px; }

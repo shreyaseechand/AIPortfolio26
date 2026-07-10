@@ -73,7 +73,8 @@
     img { max-width: 100%; display: block; }
     a { color: inherit; text-decoration: none; }
 
-    .wrap { max-width: 1200px; margin: 0 auto; padding-inline: 40px; }
+    /* --wrap-pad is exposed so full-bleed children can cancel it exactly. */
+    .wrap { max-width: 1200px; margin: 0 auto; --wrap-pad: 40px; padding-inline: var(--wrap-pad); }
 
     /* Display face — Copernicus substitute. Weight 500, negative tracking (non-negotiable per doc). */
     .display-xl, .display-lg, .display-md, .display-sm {
@@ -460,14 +461,14 @@
       .footer__cols { gap: 48px; }
     }
     @media (max-width: 900px) {
-      .wrap { padding-inline: 28px; }
+      .wrap { --wrap-pad: 28px; }
       .nav__menu { display: none; }
       .nav__burger { display: inline-flex; }
       /* FULL-BLEED mobile hero: photo spans edge-to-edge (breaks out of the
          padded wrap); eyebrow + headline overlay it; sub + CTAs sit below. */
       .hero { padding-top: 0; overflow-x: clip; }
       .hero__grid { grid-template-columns: 1fr; gap: 28px; }
-      .hero__media { order: -1; width: 100vw; margin-left: calc(50% - 50vw); }
+      .hero__media { order: -1; margin-inline: calc(var(--wrap-pad) * -1); }
       .hero__card {
         clip-path: none; animation: none; border: 0; border-radius: 0;
         max-width: none; margin: 0; width: 100%; aspect-ratio: 3 / 4;
@@ -478,13 +479,14 @@
         background: linear-gradient(180deg, transparent 24%, rgba(20,20,19,.34) 46%, rgba(20,20,19,.64) 66%, rgba(20,20,19,.9) 100%);
       }
       .hero__overlay {
-        display: flex; flex-direction: column; gap: 10px;
+        display: flex; flex-direction: column; gap: 8px;
         position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
-        padding: 24px 28px 30px;
+        padding: 20px var(--wrap-pad) 24px;
       }
-      .hero__hi--ov { color: #ffffff; margin: 0; text-shadow: 0 1px 10px rgba(0,0,0,.6); }
+      .hero__hi--ov { color: #ffffff; margin: 0; font-size: 13px; text-shadow: 0 1px 10px rgba(0,0,0,.6); }
       .hero__hi--ov .spike { color: #fff; }
-      .hero__title--ov { font-family: var(--font-display); font-weight: 500; color: #fff; font-size: clamp(30px, 9vw, 44px); line-height: 1.06; letter-spacing: -0.6px; text-shadow: 0 2px 16px rgba(0,0,0,.45); }
+      /* sized to sit in the photo's lower third, not span it */
+      .hero__title--ov { font-family: var(--font-display); font-weight: 500; color: #fff; font-size: clamp(21px, 5.8vw, 30px); line-height: 1.14; letter-spacing: -0.3px; text-shadow: 0 2px 16px rgba(0,0,0,.45); }
       /* hide the in-flow eyebrow; keep the real <h1> for AT but visually hidden */
       .hero__text > .hero__hi { display: none; }
       .hero__text > h1 { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
@@ -507,7 +509,7 @@
       .about__media { max-width: 420px; }
     }
     @media (max-width: 560px) {
-      .wrap { padding-inline: 20px; }
+      .wrap { --wrap-pad: 20px; }
       .hero__cta .btn { flex: 1 1 auto; }
       .footer__top { flex-direction: column; }
     }
