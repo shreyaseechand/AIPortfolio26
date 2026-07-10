@@ -1,8 +1,6 @@
 /* ============================================================
-   SHARED — Claude editorial design system
-   Ported 1:1 from claude-style-white-3col.html so project pages
-   match the homepage exactly. Add project-page components below.
-   NOTE: url() paths are relative to THIS file (site/css/),
+   SHARED — design system for the homepage and project pages.
+   NOTE: url() paths are relative to THIS file (css/),
    so assets resolve via ../assets/...
    ============================================================ */
 
