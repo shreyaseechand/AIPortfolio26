@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shreyasee Chand — AI Lab</title>
+  <meta name="description" content="AI Lab — Shreyasee Chand's experiments in AI product design: prototypes, tools, and workflow explorations." />
+
+  <!-- Font substitutes per DESIGN-claude.md: Cormorant Garamond ≈ Copernicus/Tiempos display; Inter ≈ StyreneB; JetBrains Mono for code -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       TOKENS — mapped 1:1 from DESIGN-claude.md
+       ============================================================ */
+    :root {
+      /* Primary CTA — black (coral removed for a minimal system) */
+      --primary: #141413;
+      --primary-active: #3d3d3a;
+      --primary-disabled: #e6dfd8;
+      --success: #5db872;
+
+      /* Text */
+      --ink: #141413;
+      --body: #3d3d3a;
+      --body-strong: #252523;
+      --muted: #6c6a64;
+      --muted-soft: #8e8b82;
+      --on-primary: #ffffff;
+      --on-dark: #faf9f5;
+      --on-dark-soft: #a09d96;
+
+      /* Surface */
+      --canvas: #faf9f5;
+      --surface-soft: #f5f0e8;
+      --surface-card: #efe9de;
+      --surface-cream-strong: #e8e0d2;
+      --surface-dark: #181715;
+      --surface-dark-elevated: #252320;
+      --surface-dark-soft: #1f1e1b;
+      --hairline: #e6dfd8;
+      --hairline-soft: #ebe6df;
+
+      /* Radius */
+      --r-xs: 4px;  --r-sm: 6px;  --r-md: 8px;
+      --r-lg: 12px; --r-xl: 16px; --r-pill: 9999px;
+
+      /* Spacing */
+      --s-xxs: 4px; --s-xs: 8px;  --s-sm: 12px; --s-md: 16px;
+      --s-lg: 24px; --s-xl: 32px; --s-xxl: 48px; --s-section: 96px;
+
+      /* Type families */
+      --font-display: "Cormorant Garamond", "EB Garamond", "Tiempos Headline", Garamond, "Times New Roman", serif;
+      --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: "JetBrains Mono", ui-monospace, monospace;
+    }
+
+    /* ============================================================
+       BASE
+       ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--canvas);
+      color: var(--body);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    .wrap { max-width: 1200px; margin: 0 auto; padding-inline: 40px; }
+
+    /* Display face — Copernicus substitute. Weight 500, negative tracking (non-negotiable per doc). */
+    .display-xl, .display-lg, .display-md, .display-sm {
+      font-family: var(--font-display);
+      font-weight: 500;
+      color: var(--ink);
+    }
+    .display-xl { font-size: clamp(40px, 6.4vw, 68px); line-height: 1.03; letter-spacing: -1.5px; }
+    .display-lg { font-size: clamp(34px, 4.6vw, 48px); line-height: 1.1; letter-spacing: -1px; }
+    .display-md { font-size: clamp(28px, 3.4vw, 38px); line-height: 1.15; letter-spacing: -0.5px; }
+    .display-sm { font-size: clamp(24px, 2.6vw, 30px); line-height: 1.2; letter-spacing: -0.3px; }
+
+    .eyebrow {
+      font-family: var(--font-body);
+      font-size: 12px; font-weight: 500; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--muted);
+    }
+
+    .lead { font-size: 18px; line-height: 1.55; color: var(--body-strong); }
+
+    /* ============================================================
+       BUTTONS
+       ============================================================ */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      font-family: var(--font-body); font-size: 14px; font-weight: 500; line-height: 1;
+      height: 44px; padding: 0 22px; border-radius: var(--r-md);
+      border: 1px solid transparent; cursor: pointer;
+      transition: background-color .18s ease, border-color .18s ease, color .18s ease;
+    }
+    .btn--primary { background: var(--primary); color: var(--on-primary); }
+    .btn--primary:active { background: var(--primary-active); }
+    .btn--secondary { background: var(--canvas); color: var(--ink); border-color: var(--hairline); }
+    .btn--secondary:active { border-color: var(--muted-soft); }
+    .btn--on-coral { background: var(--canvas); color: var(--ink); }
+    .btn--on-coral:active { background: var(--surface-cream-strong); }
+    .btn--on-dark { background: var(--surface-dark-elevated); color: var(--on-dark); }
+
+    .textlink {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--primary); font-weight: 500; font-size: 15px;
+    }
+    .textlink .arrow { transition: transform .2s ease; }
+    .textlink:hover .arrow { transform: translateX(4px); }
+    .textlink--on-dark { color: var(--on-dark); }
+
+    /* ============================================================
+       SPIKE MARK (Anthropic 4-spoke radial glyph, redrawn)
+       ============================================================ */
+    .spike { width: 20px; height: 20px; flex: none; }
+    .spike path { fill: currentColor; }
+
+    /* ============================================================
+       TOP NAV  (top-nav: cream, 64px, flat)
+       ============================================================ */
+    /* White nav: solid at the top, frosted-translucent once scrolled so content
+       shows through it (never solid white on scroll). */
+    .nav {
+      position: sticky; top: 0; z-index: 50;
+      background: #ffffff; border-bottom: 1px solid transparent;
+      transition: background .25s ease, border-color .25s ease, backdrop-filter .25s ease;
+    }
+    .nav.scrolled {
+      background: rgba(255,255,255,.62);
+      -webkit-backdrop-filter: saturate(180%) blur(14px);
+      backdrop-filter: saturate(180%) blur(14px);
+      border-bottom-color: var(--hairline);
+    }
+    .nav__inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .brand { display: inline-flex; align-items: center; gap: 9px; color: var(--ink); font-weight: 600; font-size: 17px; letter-spacing: -0.2px; }
+    .brand__logo { height: 36px; width: auto; display: block; }
+    .nav__menu { display: flex; gap: 4px; }
+    .nav__link {
+      font-size: 14px; font-weight: 500; color: var(--body); padding: 8px 14px;
+      border-radius: var(--r-md); transition: background-color .15s ease, color .15s ease;
+    }
+    .nav__link:hover { background: var(--surface-card); color: var(--ink); }
+    .nav__right { display: flex; align-items: center; gap: 10px; }
+    .nav__icon {
+      width: 38px; height: 38px; border-radius: var(--r-pill);
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--canvas); border: 1px solid var(--hairline); color: var(--ink);
+      transition: background-color .15s ease;
+    }
+    .nav__icon:hover { background: var(--surface-card); }
+    /* "Say hello" — same treatment as the LinkedIn icon button (bordered pill) */
+    .nav__pill {
+      height: 38px; padding: 0 16px; border-radius: var(--r-pill);
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--canvas); border: 1px solid var(--hairline); color: var(--ink);
+      font-size: 14px; font-weight: 500; transition: background-color .15s ease;
+    }
+    .nav__pill:hover { background: var(--surface-card); }
+    .nav__burger { display: none; background: none; border: 0; color: var(--ink); cursor: pointer; }
+
+    /* ============================================================
+       HERO  (hero-band: 6/6 split, 96px vertical rhythm)
+       ============================================================ */
+    /* White canvas behind the intro + hero image (this version only) */
+    .hero { padding-block: clamp(56px, 9vw, var(--s-section)); background-color: #ffffff; }
+    .hero__grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 64px; align-items: center; }
+    .hero__hi { color: var(--muted); font-weight: 500; font-size: 15px; margin-bottom: 18px; display: inline-flex; align-items: center; gap: 8px; }
+    .hero__hi .spike { color: var(--ink); }
+    .hero h1 { margin-bottom: 22px; }
+    .hero__sub { max-width: 30ch; margin-bottom: 32px; }
+    .hero__cta { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    /* Hero photo loads with the framer-motion clip-path reveal ("circOut", 1.2s):
+       wipes in from the right and rests as an angled parallelogram (right edge stays
+       aligned with the nav buttons; the diagonal cut falls on the left over cream). */
+    .hero__card {
+      position: relative; overflow: hidden; aspect-ratio: 4 / 5;
+      clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
+      animation: heroReveal 1.2s cubic-bezier(0, 0.55, 0.45, 1) both;
+    }
+    /* Nudge the photo ~1/16 to the left within its frame to crop out the plane wires */
+    .hero__card img { width: 100%; height: 100%; object-fit: cover; object-position: 56.25% center; }
+    @keyframes heroReveal {
+      from { clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%); }
+      to   { clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%); }
+    }
+    .hero__badge {
+      position: absolute; left: 16px; bottom: 16px;
+      background: rgba(255,255,255,.82); backdrop-filter: blur(6px); color: var(--ink);
+      font-size: 12px; font-weight: 500; letter-spacing: .3px;
+      padding: 7px 13px; border-radius: var(--r-pill);
+    }
+    /* Overlay copy of eyebrow + headline — shown only on mobile (see responsive) */
+    .hero__overlay { display: none; }
+
+    /* ============================================================
+       FOLD — first screen = high-level intro (hero) with the brand
+       strip pinned to the bottom of the viewport. Next scroll lands
+       on the full-screen About Me.
+       ============================================================ */
+    /* subtract the 64px sticky nav (+ a small buffer) so the strip's bottom
+       lands fully ABOVE the fold */
+    .fold { min-height: calc(100svh - 72px); display: flex; flex-direction: column; }
+    .fold .hero { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; justify-content: center; padding-block: clamp(18px, 3vh, 44px); }
+    /* the hero photo FILLS the available fold height (instead of a fixed aspect)
+       so the whole fold — hero + brand strip — always fits within one screen */
+    .fold .hero__grid { flex: 1 1 auto; min-height: 0; align-items: stretch; }
+    .fold .hero__text { align-self: center; }
+    .fold .hero__media { min-height: 0; }
+    .fold .hero__card { aspect-ratio: auto; height: 100%; }
+    .fold .clients { flex: 0 0 auto; }
+    /* The detailed About Me fills the screen as the next scroll target */
+    .aboutme { min-height: 100svh; display: flex; flex-direction: column; justify-content: center; }
+    /* Web view: the hero photo bleeds to the very top & bottom of its section
+       (no vertical padding); the text column stays vertically centered. */
+    @media (min-width: 901px) {
+      .fold .hero { padding-block: 0; }
+    }
+
+    /* ============================================================
+       LOGO MARQUEE  (muted logos on cream)
+       ============================================================ */
+    .clients { padding-block: 44px; border-block: 1px solid var(--hairline-soft); background-color: #ffffff; }
+    .clients__label { text-align: left; margin-bottom: 22px; }
+    /* Auto-scroll carousel (Logos3 pattern, ported natively): continuous scroll
+       with soft left/right edge-fade masks so logos dissolve at the boundaries. */
+    .marquee { position: relative; overflow-x: clip; overflow-y: visible; }
+    .marquee__track { display: flex; align-items: center; gap: 72px; width: max-content; animation: marquee 42s linear infinite; }
+    /* Hover anywhere over the strip pauses the infinite scroll */
+    .marquee:hover .marquee__track { animation-play-state: paused; }
+    /* edge fades — mirror the shadcn Logos3 `from-background to-transparent` gradients */
+    .marquee::before, .marquee::after {
+      content: ""; position: absolute; top: 0; bottom: 0; z-index: 4;
+      width: clamp(48px, 8vw, 110px); pointer-events: none;
+    }
+    .marquee::before { left: 0; background: linear-gradient(to right, #ffffff, rgba(255,255,255,0)); }
+    .marquee::after { right: 0; background: linear-gradient(to left, #ffffff, rgba(255,255,255,0)); }
+    .logo { position: relative; display: inline-flex; align-items: center; justify-content: center; }
+    /* Per-logo optical sizing: bold marks smaller, light wordmarks taller, so every
+       brand carries equal visual weight on ONE centered line (no more up/down wave). */
+    .logo img { width: auto; display: block; height: 28px; }
+    .logo[data-name="IBM"] img         { height: 22px; }
+    .logo[data-name="Intuit"] img      { height: 24px; }
+    .logo[data-name="Cisco"] img       { height: 24px; }
+    .logo[data-name="Travelocity"] img { height: 28px; }
+    .logo[data-name="QuickBooks"] img  { height: 34px; }
+    /* These marks carry heavy internal padding in their source files, so they
+       render small — doubled here so they read at the same weight as the rest. */
+    .logo[data-name="Expedia"] img     { height: 60px; }
+    .logo[data-name="Hotels.com"] img  { height: 60px; }
+    .logo[data-name="Symantec"] img    { height: 60px; }
+    .logo[data-name="ChargePoint"] img { height: 64px; }
+    .logo[data-name="Chewy"] img       { height: 68px; }
+    /* Brand-name tooltip on hover (replaces the old opacity fade) */
+    .logo::after {
+      content: attr(data-name);
+      position: absolute; left: 50%; bottom: calc(100% + 12px);
+      transform: translateX(-50%) translateY(4px);
+      background: #ffffff; color: var(--ink); border: 1px solid var(--hairline);
+      box-shadow: 0 4px 14px rgba(20,20,19,.10);
+      font-size: 12px; font-weight: 500; letter-spacing: .2px;
+      padding: 5px 10px; border-radius: var(--r-md); white-space: nowrap;
+      opacity: 0; pointer-events: none;
+      transition: opacity .15s ease, transform .15s ease; z-index: 5;
+    }
+    .logo::before {
+      content: ""; position: absolute; left: 50%; bottom: calc(100% + 7px);
+      transform: translateX(-50%) translateY(4px);
+      border: 5px solid transparent; border-top-color: #ffffff;
+      opacity: 0; pointer-events: none;
+      transition: opacity .15s ease, transform .15s ease; z-index: 5;
+    }
+    .logo:hover::after, .logo:hover::before { opacity: 1; transform: translateX(-50%) translateY(0); }
+    @keyframes marquee { to { transform: translateX(-50%); } }
+
+    /* ============================================================
+       SELECTED WORK  (alternating cream-card / dark-mockup bands)
+       ============================================================ */
+    .work { padding-block: var(--s-section); background-color: #ffffff; }
+    .section-head { max-width: 640px; margin: 0 auto clamp(40px, 6vw, 72px); text-align: center; }
+    .section-head .eyebrow { display: block; margin-bottom: 16px; }
+    .section-head p { margin-top: 16px; color: var(--muted); }
+
+    .case { position: relative; background-color: var(--card, var(--surface-card)); border: 1px solid var(--hairline); border-radius: var(--r-lg); overflow: hidden; margin-bottom: 24px; }
+    .case__inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(24px, 4vw, 56px); }
+    .case__body { padding: clamp(32px, 4vw, 56px); }
+    .case__media { align-self: stretch; display: flex; align-items: center; justify-content: center; padding: clamp(24px, 3vw, 40px); min-height: 340px; }
+    .case__media img { width: 100%; max-width: 520px; object-fit: contain; }
+    .case .eyebrow { display: block; margin-bottom: 14px; }
+    .case__title { margin-bottom: 14px; }
+    .case__desc { max-width: 42ch; margin-bottom: 24px; }
+
+    /* Topographic texture (Bgnd.webp) behind every image panel, multiplied over the card's
+       own colour so each keeps its round-robin tone; crop offset per card so no two match. */
+    .case--light .case__media,
+    .case--deep .case__media {
+      background-color: var(--card, var(--surface-card));
+      background-image: url("assets/img/Bgnd.webp");
+      background-size: cover; background-repeat: no-repeat;
+      background-blend-mode: multiply;
+    }
+    .case:nth-of-type(1) .case__media { background-position: left top; }
+    .case:nth-of-type(2) .case__media { background-position: right center; }
+    .case:nth-of-type(3) .case__media { background-position: center top; }
+    .case:nth-of-type(4) .case__media { background-position: left bottom; }
+    .case:nth-of-type(5) .case__media { background-position: right bottom; }
+    .case:nth-of-type(6) .case__media { background-position: 35% 65%; }
+
+    .case--deep .case__title { color: var(--on-dark); }
+    .case--deep .eyebrow { color: rgba(250,249,245,.62); }
+    .case--deep .case__desc { color: rgba(250,249,245,.80); }
+    .case--deep .case__media { background: rgba(255,255,255,.05); }
+
+    /* even rows flip image to the left for editorial rhythm */
+    .case:nth-child(even) .case__media { order: -1; }
+
+    /* ============================================================
+       ABOUT  (editorial 2-col)
+       ============================================================ */
+    .about { padding-block: var(--s-section); background-color: var(--surface-soft); border-block: 1px solid var(--hairline-soft); }
+    .about__grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(40px, 6vw, 80px); align-items: center; }
+    .about .eyebrow { display: block; margin-bottom: 18px; }
+    .about h2 { margin-bottom: 24px; max-width: 16ch; }
+    .about__body p { margin-bottom: 18px; max-width: 60ch; }
+    .about__body p:last-child { margin-bottom: 0; }
+    .about__media { border-radius: var(--r-xl); overflow: hidden; border: 1px solid var(--hairline); aspect-ratio: 4/5; background: var(--surface-card); }
+    .about__media img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* ============================================================
+       ABOUT ME  (bio + self-scrolling gallery)
+       ============================================================ */
+    .aboutme { padding-block: var(--s-section); background-color: var(--surface-soft); border-block: 1px solid var(--hairline-soft); }
+    .aboutme__grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(40px, 6vw, 72px); align-items: center; }
+    .aboutme .eyebrow { display: block; margin-bottom: 18px; }
+    .aboutme h2 { margin-bottom: 22px; max-width: 15ch; }
+    .aboutme__body p { margin-bottom: 18px; max-width: 56ch; color: var(--body); }
+    .aboutme__body p:last-child { margin-bottom: 0; }
+    .aboutme__stats { display: flex; gap: 40px; margin-top: 30px; flex-wrap: wrap; }
+    .aboutme__stat .n { font-family: var(--font-display); font-weight: 500; font-size: 34px; line-height: 1; color: var(--ink); letter-spacing: -0.5px; }
+    .aboutme__stat .l { font-size: 13px; color: var(--muted); margin-top: 8px; max-width: 16ch; }
+    .aboutme__cta { margin-top: 30px; }
+
+    /* Grouped self-scrolling gallery — 3-column masonry per group, all scroll up together */
+    .gallery {
+      position: relative; height: 600px; overflow: hidden;
+      -webkit-mask-image: linear-gradient(to bottom, transparent, #000 7%, #000 93%, transparent);
+              mask-image: linear-gradient(to bottom, transparent, #000 7%, #000 93%, transparent);
+    }
+    .g-track { will-change: transform; animation: gscroll 60s linear infinite; }
+    .gallery:hover .g-track { animation-play-state: paused; }
+    @keyframes gscroll { from { transform: translateY(0); } to { transform: translateY(-50%); } }
+    .g-group { margin-top: 26px; }
+    .g-heading { font-size: 11px; font-weight: 600; letter-spacing: 1.6px; text-transform: uppercase; color: var(--muted); margin: 0 2px 12px; }
+    .g-masonry { column-count: 3; column-gap: 8px; }
+    .g-item { position: relative; break-inside: avoid; margin-bottom: 8px; border-radius: 10px; overflow: hidden; }
+    /* Warm editorial grade — gently desaturates + warms every photo so the mixed set
+       reads as one cohesive system on the cream canvas (Claude visual style). */
+    .g-item img { display: block; width: 100%; height: auto; filter: saturate(0.86) sepia(0.12) contrast(0.97) brightness(1.02); }
+    /* faint warm wash to unify colour temperature */
+    .g-item::after { content: ""; position: absolute; inset: 0; background: #cc785c; opacity: 0.05; mix-blend-mode: multiply; pointer-events: none; }
+    /* A single "resting" photo group (e.g. Home) fills the full gallery column width */
+    .g-masonry--single { column-count: 1; }
+    /* Caption beneath the self-scrolling gallery */
+    .gallery__caption { text-align: center; font-size: 13px; color: var(--muted); margin-top: 16px; }
+
+    /* ============================================================
+       CORAL CALLOUT CTA  (callout-card-coral / cta-band-coral)
+       ============================================================ */
+    .cta { padding-block: var(--s-section); background-color: var(--canvas); }
+    .cta__card {
+      background: var(--surface-card); color: var(--ink);
+      border: 1px solid var(--hairline);
+      border-radius: var(--r-lg); padding: clamp(40px, 6vw, 72px);
+      text-align: center;
+    }
+    .cta__card h2 { color: var(--ink); margin: 0 auto 18px; max-width: 20ch; }
+    .cta__card p { color: var(--muted); max-width: 46ch; margin: 0 auto 32px; font-size: 17px; }
+
+    /* ============================================================
+       FOOTER  (dark, never inverts)
+       ============================================================ */
+    /* Dark footer with topographic FooterBgnd texture */
+    .footer {
+      position: relative; isolation: isolate;
+      background-color: #141413;
+      background-image: url("assets/img/FooterBgnd.webp");
+      background-size: cover; background-position: center;
+      color: var(--on-dark);
+      padding-block: clamp(56px, 8vw, 96px);
+      overflow: hidden;
+    }
+    .footer::before { content: ""; position: absolute; inset: 0; z-index: 0; background: linear-gradient(180deg, rgba(20,20,19,.30), rgba(20,20,19,.62)); }
+    .footer .wrap { position: relative; z-index: 1; }
+    .footer__top { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; flex-wrap: wrap; padding-bottom: clamp(40px, 6vw, 64px); }
+    .footer__eyebrow { color: var(--on-dark-soft); display: block; margin-bottom: 20px; }
+    .footer__headline { color: var(--on-dark); max-width: 20ch; margin-bottom: 26px; }
+    .footer__mail { display: inline-flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 500; color: var(--on-dark); border-bottom: 1px solid rgba(250,249,245,.32); padding-bottom: 3px; transition: border-color .2s ease; }
+    .footer__mail .arrow { transition: transform .2s ease; }
+    .footer__mail:hover { border-color: var(--on-dark); }
+    .footer__mail:hover .arrow { transform: translateX(4px); }
+    .footer__social { display: flex; gap: 12px; flex: none; }
+    .footer__icon { width: 46px; height: 46px; border-radius: var(--r-pill); display: inline-flex; align-items: center; justify-content: center; background: #faf9f5; color: #141413; transition: transform .2s ease, background-color .2s ease; }
+    .footer__icon:hover { transform: translateY(-2px); background: #ffffff; }
+    .footer__icon svg { width: 20px; height: 20px; }
+    .footer__icon, .nav__icon { position: relative; }
+    .copy-tip { position: absolute; right: 0; white-space: nowrap; padding: 9px 13px; border-radius: 10px; font-size: 12.5px; line-height: 1; font-weight: 500; box-shadow: 0 14px 34px rgba(0,0,0,.30); opacity: 0; pointer-events: none; transition: opacity .18s ease, transform .18s ease; z-index: 80; }
+    .copy-tip::after { content: ""; position: absolute; right: 16px; border: 6px solid transparent; }
+    .footer__icon .copy-tip { bottom: calc(100% + 12px); background: #faf9f5; color: #141413; border: 1px solid rgba(20,20,19,.08); transform: translateY(6px); }
+    .footer__icon .copy-tip::after { top: 100%; border-top-color: #faf9f5; }
+    .nav__icon .copy-tip { top: calc(100% + 12px); background: #141413; color: #faf9f5; transform: translateY(-6px); }
+    .nav__icon .copy-tip::after { bottom: 100%; border-bottom-color: #141413; }
+    .is-copied .copy-tip { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .copy-tip { transform: none; } }
+    .footer__bottom { display: flex; justify-content: space-between; align-items: center; gap: 16px 28px; flex-wrap: wrap; padding-top: 28px; font-size: 13px; color: var(--on-dark-soft); }
+    .footer__brand { display: inline-flex; align-items: center; gap: 9px; color: var(--on-dark); font-weight: 600; font-size: 16px; }
+    .footer__brand .spike { color: var(--on-dark); }
+    .footer__links { display: flex; gap: 24px; flex-wrap: wrap; }
+    .footer__links a { color: var(--on-dark-soft); transition: color .15s ease; }
+    .footer__links a:hover { color: var(--on-dark); }
+
+    /* ============================================================
+       REVEAL ANIMATION
+       ============================================================ */
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; transition-delay: var(--d, 0ms); }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; }
+      .marquee__track { animation: none; }
+      .g-track { animation: none; }
+      .hero__card { animation: none; } /* rests at final clip-path, no motion */
+      html { scroll-behavior: auto; }
+    }
+
+    /* ============================================================
+       RESPONSIVE  (breakpoints per doc)
+       ============================================================ */
+    @media (max-width: 1024px) {
+      .hero__grid { gap: 40px; }
+      .footer__cols { gap: 48px; }
+    }
+    @media (max-width: 900px) {
+      .wrap { padding-inline: 28px; }
+      .nav__menu { display: none; }
+      .nav__burger { display: inline-flex; }
+      /* FULL-BLEED mobile hero: photo spans edge-to-edge (breaks out of the
+         padded wrap); eyebrow + headline overlay it; sub + CTAs sit below. */
+      .hero { padding-top: 0; overflow-x: clip; }
+      .hero__grid { grid-template-columns: 1fr; gap: 28px; }
+      .hero__media { order: -1; width: 100vw; margin-left: calc(50% - 50vw); }
+      .hero__card {
+        clip-path: none; animation: none; border: 0; border-radius: 0;
+        max-width: none; margin: 0; width: 100%; aspect-ratio: 3 / 4;
+      }
+      /* long, gradual scrim so BOTH the eyebrow and headline read on the photo */
+      .hero__card::after {
+        content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+        background: linear-gradient(180deg, transparent 24%, rgba(20,20,19,.34) 46%, rgba(20,20,19,.64) 66%, rgba(20,20,19,.9) 100%);
+      }
+      .hero__overlay {
+        display: flex; flex-direction: column; gap: 10px;
+        position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
+        padding: 24px 28px 30px;
+      }
+      .hero__hi--ov { color: #ffffff; margin: 0; text-shadow: 0 1px 10px rgba(0,0,0,.6); }
+      .hero__hi--ov .spike { color: #fff; }
+      .hero__title--ov { font-family: var(--font-display); font-weight: 500; color: #fff; font-size: clamp(30px, 9vw, 44px); line-height: 1.06; letter-spacing: -0.6px; text-shadow: 0 2px 16px rgba(0,0,0,.45); }
+      /* hide the in-flow eyebrow; keep the real <h1> for AT but visually hidden */
+      .hero__text > .hero__hi { display: none; }
+      .hero__text > h1 { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+      .hero h1 { margin-bottom: 0; }
+      .hero__sub { margin-top: 4px; }
+      /* In the FOLD on mobile, cap the photo height (name still overlaid on it) so
+         the sub-copy stays visible below it, with the brand strip beneath that. */
+      .fold .hero { padding: 0; }
+      .fold .hero__grid { grid-template-rows: auto auto; gap: 0; }
+      .fold .hero__media { height: 48svh; }
+      .fold .hero__card { aspect-ratio: auto; height: 100%; }
+      .fold .hero__sub { display: block; margin: 18px 0 0; }
+      .case__inner { grid-template-columns: 1fr; }
+      /* every card: image panel on top, text section below on WHITE */
+      .case__media { order: -1; min-height: 0; }
+      .case__body { padding: 32px; background: #ffffff; }
+      .aboutme__grid { grid-template-columns: 1fr; }
+      .gallery { height: 460px; max-width: 520px; }
+      .about__grid { grid-template-columns: 1fr; }
+      .about__media { max-width: 420px; }
+    }
+    @media (max-width: 560px) {
+      .wrap { padding-inline: 20px; }
+      .hero__cta .btn { flex: 1 1 auto; }
+      .footer__top { flex-direction: column; }
+    }
+
+    /* mobile sheet */
+    .sheet { position: fixed; inset: 0; z-index: 60; background: var(--canvas); transform: translateY(-100%); transition: transform .3s ease; padding: 24px 28px; display: flex; flex-direction: column; }
+    .sheet.open { transform: none; }
+    .sheet__head { display: flex; justify-content: space-between; align-items: center; height: 40px; margin-bottom: 40px; }
+    .sheet a.nav__link { font-family: var(--font-display); font-weight: 500; font-size: 34px; letter-spacing: -1px; color: var(--ink); padding: 14px 0; border-bottom: 1px solid var(--hairline-soft); border-radius: 0; }
+    .sheet a.nav__link:hover { background: none; }
+    .sheet__close { background: none; border: 0; color: var(--ink); cursor: pointer; font-size: 28px; line-height: 1; }
+
+    /* ============================================================
+       AI LAB PAGE
+       ============================================================ */
+    .nav__link--active { background: var(--surface-card); color: var(--ink); }
+    .hero__grid--lab { align-items: center; }
+    .hero__media--lab { display: flex; align-items: center; justify-content: center; }
+    /* New logo sits in a soft framed tile so the gradient mark reads on white */
+    .lab-logo {
+      width: min(360px, 78%); aspect-ratio: 1; padding: 12%;
+      display: flex; align-items: center; justify-content: center;
+      background: #ffffff; border: 1px solid var(--hairline); border-radius: var(--r-xl);
+      box-shadow: 0 20px 60px rgba(20,20,19,.08);
+    }
+    .lab-logo img { width: 100%; height: 100%; object-fit: contain; }
+    .lab-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .lab-card {
+      background: var(--surface-card); border: 1px solid var(--hairline); border-radius: var(--r-lg);
+      padding: clamp(28px, 3vw, 40px); display: flex; flex-direction: column; gap: 12px; min-height: 220px;
+    }
+    .lab-card__tag {
+      align-self: flex-start; font-size: 12px; font-weight: 500; letter-spacing: .4px; color: var(--muted);
+      background: var(--canvas); border: 1px solid var(--hairline); padding: 4px 10px; border-radius: var(--r-pill);
+    }
+    .lab-card h3 { color: var(--ink); }
+    .lab-card p { color: var(--muted); max-width: 34ch; }
+    @media (max-width: 900px) {
+      .lab-grid { grid-template-columns: 1fr; }
+      .hero__grid--lab { grid-template-columns: 1fr; }
+      .hero__media--lab { order: -1; }
+      .lab-logo { width: min(240px, 60%); margin: 0 auto; }
+    }
+  </style>
+</head>
+<body id="top">
+
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <div class="wrap nav__inner">
+      <a class="brand" href="#top" aria-label="Shreyasee Chand — home">
+        <img class="brand__logo" src="assets/img/logos/ai-lab-logo.webp" alt="Shreyasee Chand — AI Lab" />
+      </a>
+
+      <nav class="nav__menu" aria-label="Primary">
+        <a class="nav__link" href="index.html#work">Work</a>
+        <a class="nav__link" href="index.html#about">About</a>
+        <a class="nav__link nav__link--active" href="#top" aria-current="page">AI Lab</a>
+        <a class="nav__link" href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav__right">
+        <a class="nav__icon" href="https://www.linkedin.com/in/shreyasee-chand-67780a19/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.4 8.65 21 11 21 14.1V21h-4v-6.1c0-1.46-.03-3.33-2.03-3.33-2.03 0-2.34 1.58-2.34 3.22V21H9V9Z"/></svg>
+        </a>
+        <a class="nav__icon nav__icon--email" data-email-copy href="mailto:shreyaseechand@gmail.com" aria-label="Email Shreyasee"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span class="copy-tip" role="status" aria-live="polite"></span></a>
+        <button class="nav__burger" aria-label="Open menu" onclick="document.getElementById('sheet').classList.add('open')">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- mobile sheet -->
+  <div class="sheet" id="sheet">
+    <div class="sheet__head">
+      <span class="brand"><img class="brand__logo" src="assets/img/logos/PortfolioLogo1.gif" alt="Shreyasee Chand" /></span>
+      <button class="sheet__close" aria-label="Close menu" onclick="document.getElementById('sheet').classList.remove('open')">&times;</button>
+    </div>
+    <a class="nav__link" href="index.html#work">Work</a>
+    <a class="nav__link" href="index.html#about">About</a>
+    <a class="nav__link nav__link--active" href="#top" aria-current="page" onclick="document.getElementById('sheet').classList.remove('open')">AI Lab</a>
+    <a class="nav__link" href="#contact" onclick="document.getElementById('sheet').classList.remove('open')">Contact</a>
+  </div> 
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="wrap hero__grid hero__grid--lab">
+        <div class="hero__text">
+          <p class="hero__hi reveal">AI Lab</p>
+          <h1 class="display-xl reveal" style="--d:80ms">Experiments at the edge of design and AI.</h1>
+          <p class="hero__sub lead reveal" style="--d:180ms">A working notebook of prototypes, tools, and explorations — where I test how AI can make products feel more understandable, controllable, and genuinely helpful.</p>
+          <div class="hero__cta reveal" style="--d:260ms">
+            <a class="btn btn--primary" href="#experiments">See experiments</a>
+            <a class="btn btn--secondary" href="index.html">Back to portfolio</a>
+          </div>
+        </div>
+        <div class="hero__media hero__media--lab">
+          <div class="lab-logo reveal" style="--d:120ms">
+            <img src="assets/img/logos/ai-lab-logo.webp" alt="AI Lab" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIMENTS ============ -->
+    <section class="work" id="experiments">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">AI Lab</span>
+          <h2 class="display-lg">Things I'm building &amp; testing.</h2>
+          <p>A growing set of AI-driven experiments in product design. More coming soon.</p>
+        </div>
+
+        <div class="lab-grid">
+          <article class="lab-card reveal">
+            <span class="lab-card__tag">Prototype</span>
+            <h3 class="display-sm">Coming soon</h3>
+            <p>An early experiment in AI-assisted design workflows.</p>
+          </article>
+          <article class="lab-card reveal" style="--d:80ms">
+            <span class="lab-card__tag">Tool</span>
+            <h3 class="display-sm">Coming soon</h3>
+            <p>A small utility exploring model-in-the-loop interfaces.</p>
+          </article>
+          <article class="lab-card reveal" style="--d:160ms">
+            <span class="lab-card__tag">Exploration</span>
+            <h3 class="display-sm">Coming soon</h3>
+            <p>A study on making powerful AI feel controllable and calm.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" id="contact">
+    <div class="wrap">
+      <div class="footer__top">
+        <div class="footer__lead">
+          <span class="eyebrow footer__eyebrow">Get in touch</span>
+          <h2 class="display-lg footer__headline">Let's bring your creative ideas to life! Feel free to hit me up; I'm looking forward to connecting.</h2>
+        </div>
+        <div class="footer__social">
+          <a class="footer__icon footer__icon--email" data-email-copy href="mailto:shreyaseechand@gmail.com" aria-label="Email Shreyasee">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          <span class="copy-tip" role="status" aria-live="polite"></span>
+          </a>
+          <a class="footer__icon" href="https://www.linkedin.com/in/shreyasee-chand-67780a19/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.4 8.65 21 11 21 14.1V21h-4v-6.1c0-1.46-.03-3.33-2.03-3.33-2.03 0-2.34 1.58-2.34 3.22V21H9V9Z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© Shreyasee Chand 2026</span>
+        <span>Handcrafted with care, powered by AI</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // Frost the top nav once the page scrolls, so content shows through it
+    const nav = document.querySelector('.nav');
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  </script>
+  <script>
+  document.querySelectorAll('[data-email-copy]').forEach(function (link) {
+    var tip = link.querySelector('.copy-tip');
+    var email = (link.getAttribute('href') || '').replace(/^mailto:/, '').split('?')[0] || 'shreyaseechand@gmail.com';
+    var hideTimer;
+    function showTip() {
+      if (tip) tip.textContent = 'Copied email address!';
+      link.classList.add('is-copied');
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(function () { link.classList.remove('is-copied'); }, 2600);
+    }
+    function copyEmail() {
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(email); }
+        else {
+          var ta = document.createElement('textarea');
+          ta.value = email; ta.setAttribute('readonly', '');
+          ta.style.position = 'fixed'; ta.style.opacity = '0';
+          document.body.appendChild(ta); ta.select();
+          document.execCommand('copy'); document.body.removeChild(ta);
+        }
+      } catch (e) {}
+    }
+    link.addEventListener('click', function () {
+      copyEmail();
+      var opened = false;
+      var onBlur = function () { opened = true; };
+      var onVis = function () { if (document.hidden) opened = true; };
+      window.addEventListener('blur', onBlur, { once: true });
+      document.addEventListener('visibilitychange', onVis);
+      setTimeout(function () {
+        window.removeEventListener('blur', onBlur);
+        document.removeEventListener('visibilitychange', onVis);
+        if (!opened && document.hasFocus()) showTip();
+      }, 700);
+    });
+  });
+  </script>
+</body>
+</html>

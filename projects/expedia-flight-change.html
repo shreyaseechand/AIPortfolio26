@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flight change — Expedia · Shreyasee Chand</title>
+  <meta name="description" content="Case study: designing self-service flight change for Expedia customers and agents — surfacing eligibility, fare difference, and penalties up front. $3.9M annual savings and $1.5M incremental net revenue. By Shreyasee Chand." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/shared.css" />
+</head>
+<body id="top">
+
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <div class="wrap nav__inner">
+      <a class="brand" href="../index.html#top" aria-label="Shreyasee Chand — home">
+        <img class="brand__logo" src="../assets/img/logos/PortfolioLogo1.gif" alt="Shreyasee Chand" />
+      </a>
+      <nav class="nav__menu" aria-label="Primary">
+        <a class="nav__link" href="../index.html#work">Work</a>
+        <a class="nav__link" href="../index.html#about">About</a>
+        <a class="nav__link" href="../index.html#contact">Contact</a>
+      </nav>
+      <div class="nav__right">
+        <a class="nav__icon" href="https://www.linkedin.com/in/shreyasee-chand-67780a19/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.4 8.65 21 11 21 14.1V21h-4v-6.1c0-1.46-.03-3.33-2.03-3.33-2.03 0-2.34 1.58-2.34 3.22V21H9V9Z"/></svg>
+        </a>
+        <a class="nav__icon nav__icon--email" data-email-copy href="mailto:shreyaseechand@gmail.com" aria-label="Email Shreyasee"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span class="copy-tip" role="status" aria-live="polite"></span></a>
+        <button class="nav__burger" data-sheet-open aria-label="Open menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- mobile sheet -->
+  <div class="sheet" id="sheet">
+    <div class="sheet__head">
+      <span class="brand"><img class="brand__logo" src="../assets/img/logos/PortfolioLogo1.gif" alt="Shreyasee Chand" /></span>
+      <button class="sheet__close" data-sheet-close aria-label="Close menu">&times;</button>
+    </div>
+    <a class="nav__link" href="../index.html#work" data-sheet-close>Work</a>
+    <a class="nav__link" href="../index.html#about" data-sheet-close>About</a>
+    <a class="nav__link" href="../index.html#contact" data-sheet-close>Contact</a>
+  </div>
+
+  <main>
+    <!-- ============ PROJECT HERO ============ -->
+    <section class="project-hero">
+      <div class="wrap">
+        <div class="project-hero__grid">
+          <div class="project-hero__text">
+            <div class="project-hero__eyebrow reveal">
+              <span class="eyebrow">Expedia</span>
+              <span class="dot"></span>
+              <span class="eyebrow">Senior Product Designer</span>
+            </div>
+            <h1 class="display-xl reveal" style="--d:80ms">Flight change</h1>
+            <p class="project-hero__sub lead reveal" style="--d:160ms">Help Expedia flight agents and customers easily change flights online, generating $5.5M in combined impact.</p>
+          </div>
+          <div class="project-hero__media reveal" style="--panel:#f0ece6;--d:120ms">
+            <img src="../assets/img/heroes/FlightChangeHero.webp" alt="Expedia flight change — agent desktop console and customer mobile rebooking flow" />
+            <div class="project-hero__overlay" aria-hidden="true">
+              <div class="project-hero__eyebrow">
+                <span class="eyebrow">Expedia</span>
+                <span class="dot"></span>
+                <span class="eyebrow">Senior Product Designer</span>
+              </div>
+              <p class="project-hero__title-ov">Flight change</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STAT BAND ============ -->
+    <section class="stat-band stat-band--center">
+      <div class="wrap reveal">
+        <span class="eyebrow" style="display:block; margin-bottom:20px;">Impact</span>
+        <div class="stat-band__grid">
+          <div class="stat-band__item"><span class="stat-band__n">$3.9M</span><span class="stat-band__l">Annual cost savings</span></div>
+          <div class="stat-band__item"><span class="stat-band__n">$1.5M</span><span class="stat-band__l">Incremental net revenue per year</span></div>
+          <div class="stat-band__item"><span class="stat-band__n">1.5 hrs</span><span class="stat-band__l">Length of the average change call we set out to eliminate</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 01 OVERVIEW ============ -->
+    <section class="narrative">
+      <div class="wrap">
+        <div class="case-head reveal"><span class="eyebrow">Overview</span></div>
+        <div class="narrative__body case-body reveal" style="--d:80ms">
+          <p class="lead">Calling a support agent was the only way Expedia's flight customers could exchange their flights — leading to frustrating phone calls that ran <strong>1.5 hours on average</strong> and a poor change-flow NPS of <strong>−12%</strong>.</p>
+          <p>The business needed to reduce agents' average handle time, minimize operational and agent-error costs, and retire the Legacy Flights tool by building flight transactions on Expedia's Voyager platform (already used for lodging). The goal was two-sided: make the change experience <strong>fast and self-serve for customers</strong> and <strong>streamline the workflow for agents</strong>.</p>
+          <div class="p-meta" style="margin-top:32px">
+            <div class="p-meta__item"><div class="p-meta__k">Role</div><div class="p-meta__v">Design lead — research, prototyping, redlines</div></div>
+            <div class="p-meta__item"><div class="p-meta__k">Platform</div><div class="p-meta__v">Customer web &amp; agent tooling</div></div>
+            <div class="p-meta__item"><div class="p-meta__k">Team</div><div class="p-meta__v">PM · Engineers · Content · Data</div></div>
+            <div class="p-meta__item"><div class="p-meta__k">Stakeholders</div><div class="p-meta__v">Training, Supply, Finance, Fraud, Service Delivery</div></div>
+          </div>
+          <div class="figure-block reveal" style="--d:120ms">
+            <figure><img src="../assets/img/projects/flightchange/02-overview.webp" alt="The legacy Flights tool agents were required to use" loading="lazy" /><figcaption>The legacy Flights tool — the only path to a flight change, and a big driver of long calls.</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 02 RESEARCH ============ -->
+    <section class="narrative narrative--soft">
+      <div class="wrap">
+        <div class="case-head reveal">
+          <span class="eyebrow">Research</span>
+          <h3 class="display-sm">Agents were juggling tools; customers were flying blind</h3>
+        </div>
+        <div class="narrative__body case-body reveal" style="--d:80ms">
+          <p class="ps__h">Interviewed agents on how they changed existing flights</p>
+          <p>Agents hopped between multiple tools to handle a single scenario — a raw GDS command prompt in one window, the legacy Flights tool in another — making the process inefficient and error-prone.</p>
+          <div class="figure-grid reveal" style="--d:120ms">
+            <figure><img src="../assets/img/projects/flightchange/03-GDS.webp" alt="A GDS command prompt — one of several tools agents juggled" loading="lazy" /><figcaption>Command prompt for the Global Distribution Systems (GDS).</figcaption></figure>
+            <figure><img src="../assets/img/projects/flightchange/04-flightsui2-1.webp" alt="The legacy Flights UI agents worked in" loading="lazy" /><figcaption>The legacy Flights tool for agents.</figcaption></figure>
+          </div>
+
+          <p class="ps__h">Project inception with the cross-functional team</p>
+          <p>Worked with the PM to list out all the flight-change scenarios, which were complex and spanned across teams and tools. It was a large problem space.</p>
+          <ul>
+            <li>Partnered with the PM to bring together different teams and stakeholders to understand the system's complexity, identify the roadmap and key workflows, and decide what we wanted to keep from the existing system and what we wanted to change.</li>
+            <li>Stakeholders voted and agreed on the high-impact, high-volume scenarios that should be tackled in the given timeframe, which were:
+              <ul>
+                <li>One-way and round-trip changes for all travelers — ideal for a <strong>customer self-serve</strong> experience</li>
+                <li><strong>Agent-assisted</strong> flight changes for fewer than all travelers</li>
+                <li>Airline-initiated schedule changes and refunds</li>
+              </ul>
+            </li>
+          </ul>
+          <div class="figure-block reveal" style="--d:120ms">
+            <figure><img src="../assets/img/projects/flightchange/05-inception.webp" alt="Stakeholders mapping flight-change scenarios on sticky-note walls during the project inception" loading="lazy" /><figcaption>Inception with stakeholders.</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 03 CUSTOMER EXPERIENCE ============ -->
+    <section class="narrative">
+      <div class="wrap">
+        <div class="case-head reveal">
+          <span class="eyebrow">Customer experience</span>
+          <h3 class="display-sm">Show the right options — and the real price</h3>
+        </div>
+        <div class="narrative__body case-body reveal" style="--d:80ms">
+          <div class="fig-split reveal">
+            <figure class="fig-split__shot"><img src="../assets/img/projects/flightchange/06-screen-shot-2025-08-20-at-11.44.14-am.webp" alt="Free-form search surfacing policy-ineligible flight options" loading="lazy" /></figure>
+            <div class="fig-split__text">
+              <span class="ps__tag ps__tag--problem">Problem 01</span>
+              <p class="ps__h">Ineligible options and surprise fees</p>
+              <p>Free-form search before a call surfaced options the fare rules wouldn't allow, misleading customers. To even assess a selection they had to call — and surprise agent fees and penalties eroded trust.</p>
+            </div>
+          </div>
+
+          <div class="ux-delighter reveal" style="--d:100ms">
+            <span class="ps__tag ps__tag--solution">Solution</span>
+
+            <div class="delighter">
+              <div class="delighter__head">
+                <span class="delighter__n">01</span>
+                <p class="ps__h">Surface the right policy information at the right time</p>
+              </div>
+              <div class="delighter__body">
+                <p>I brought the fare rules forward so customers only saw changes they could actually make. Two iterations tested where the policy note belonged before the final design lifted it into a dedicated airline-policy sheet.</p>
+              </div>
+              <div class="phone-row">
+                <figure><img src="../assets/img/projects/flightchange/07-It1.webp" alt="Iteration 1 — change costs explained in an inline banner above the search dates" loading="lazy" /><figcaption>Iteration 1</figcaption></figure>
+                <figure><img src="../assets/img/projects/flightchange/08-It2.webp" alt="Iteration 2 — the same policy note carried over a destination hero image" loading="lazy" /><figcaption>Iteration 2</figcaption></figure>
+                <figure>
+                  <video autoplay muted loop playsinline preload="metadata" aria-label="Final design — an airline policy sheet lists the change fee and restrictions before the customer commits">
+                    <source src="../assets/img/projects/flightchange/ChangeFeeDimension.mp4" type="video/mp4" />
+                  </video>
+                  <figcaption>Final</figcaption>
+                </figure>
+              </div>
+            </div>
+
+            <div class="delighter">
+              <div class="fig-split fig-split--flip">
+                <figure class="fig-split__shot">
+                  <img src="../assets/img/projects/flightchange/09-screen-shot-2025-08-20-at-2.04.38-pm.webp" alt="A/B test variants — full fare per option versus only the price difference against the booked itinerary" loading="lazy" />
+                  <figcaption>Variant 1 (full fare) against Variant 2 (price delta only), which won.</figcaption>
+                </figure>
+                <div class="fig-split__text">
+                  <div class="delighter__head">
+                    <span class="delighter__n">02</span>
+                    <p class="ps__h">Ran an A/B test to settle how pricing should be displayed</p>
+                  </div>
+                  <div class="delighter__body">
+                    <p>Variant 1 showed the full price of each new flight option, reconciled later against what the traveler had already paid. <strong>Variant 2 — the winner —</strong> showed only the additional or reduced cost relative to the itinerary they'd already purchased, so the decision needed no mental math.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="delighter">
+              <div class="delighter__head">
+                <span class="delighter__n">03</span>
+                <p class="ps__h">A consistent flight-change experience across devices</p>
+              </div>
+              <div class="delighter__body">
+                <p>I specified the flow across breakpoints and redlined the flight-listing card — how the price delta, fare types, and legal content behave as the layout narrows — so the experience held together everywhere it shipped.</p>
+              </div>
+              <div class="figure-grid" style="margin-top:24px">
+                <figure><img src="../assets/img/projects/flightchange/10-screen-shot-2025-08-20-at-2.46.42-pm.webp" alt="The flight-change flow specified across phone, tablet, and desktop breakpoints" loading="lazy" /><figcaption>The flow across every breakpoint.</figcaption></figure>
+                <figure><img src="../assets/img/projects/flightchange/11-variations.png" alt="Redlines for the flight-listing card covering price delta, fare types, and legal content" loading="lazy" /><figcaption>Redlines for the listing card and its variants.</figcaption></figure>
+              </div>
+            </div>
+
+            <div class="redlines">
+              <span class="eyebrow">Red lines</span>
+              <figure class="fig-wide">
+                <img src="../assets/img/projects/flightchange/12-Redlines.webp" alt="Redline specifications for the change-flight screen on mobile and desktop — spacing, type tokens, and colour tokens annotated" loading="lazy" />
+                <figcaption>Spacing, type, and colour tokens annotated for engineering — the same screen specified for mobile and desktop.</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 04 AGENT EXPERIENCE ============ -->
+    <section class="narrative narrative--soft">
+      <div class="wrap">
+        <div class="case-head reveal">
+          <span class="eyebrow">Agent experience</span>
+          <h3 class="display-sm">One guided flow, from search to payment</h3>
+        </div>
+        <div class="narrative__body case-body reveal" style="--d:80ms">
+          <div class="fig-split reveal">
+            <figure class="fig-split__shot"><img src="../assets/img/projects/flightchange/13-screen-shot-2025-08-20-at-3.16.02-pm.webp" alt="The fragmented agent workflow before redesign, annotated across the legacy Voyager screen" loading="lazy" /></figure>
+            <div class="fig-split__text">
+              <span class="ps__tag ps__tag--problem">Problem 02</span>
+              <p class="ps__h">Too many tools, too much clutter</p>
+              <p>Agents hopped across systems, a deeply nested hierarchy created confusion, and ineligible results led straight to agent errors and airline penalties.</p>
+            </div>
+          </div>
+          <div class="ux-delighter reveal" style="--d:100ms">
+            <span class="ps__tag ps__tag--solution">Solution</span>
+
+            <div class="delighter">
+              <div class="fig-split fig-split--flip">
+                <figure class="fig-split__shot">
+                  <img src="../assets/img/projects/flightchange/14-results-page.webp" alt="Iteration 1 of the consolidated agent results page, showing only eligible flights with clear cost differences" loading="lazy" />
+                  <figcaption>Iteration 1</figcaption>
+                </figure>
+                <div class="fig-split__text">
+                  <div class="delighter__head">
+                    <span class="delighter__n">01</span>
+                    <p class="ps__h">Streamlined, consolidated agent flow</p>
+                  </div>
+                  <div class="delighter__body">
+                    <ul>
+                      <li>Designed a guided workflow.</li>
+                      <li>Showed relevant flights only, with a clear cost difference.</li>
+                      <li>The existing progress indicator caused usability issues.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="delighter">
+              <div class="fig-split">
+                <figure class="fig-split__shot">
+                  <img src="../assets/img/projects/flightchange/15-results-page2.webp" alt="The final agent results page carrying the standardized stepper from search through confirmation" loading="lazy" />
+                  <figcaption>Final</figcaption>
+                </figure>
+                <div class="fig-split__text">
+                  <div class="delighter__head">
+                    <span class="delighter__n">02</span>
+                    <p class="ps__h">Defined standardized, scalable design patterns</p>
+                  </div>
+                  <div class="delighter__body">
+                    <ul>
+                      <li>Designed and iterated on various steppers.</li>
+                      <li>Worked with the design-system team to finalize it.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="fig-split fig-split--flip reveal">
+            <figure class="fig-split__shot"><img src="../assets/img/projects/flightchange/16-paymentflights.webp" alt="The unclear agent payment calculations" loading="lazy" /></figure>
+            <div class="fig-split__text">
+              <span class="ps__tag ps__tag--problem">Problem 03</span>
+              <p class="ps__h">Payment math that hit dead ends late</p>
+              <p>In the payment step, calculations were unclear, there was no visual hierarchy, and agents hit errors only after they'd invested effort — too late to recover gracefully.</p>
+            </div>
+          </div>
+          <div class="ux-delighter reveal" style="--d:100ms">
+            <span class="ps__tag ps__tag--solution">Solution</span>
+
+            <div class="delighter">
+              <div class="fig-split">
+                <figure class="fig-split__shot">
+                  <img src="../assets/img/projects/flightchange/17-recap1.webp" alt="Iteration 1 of the payment recap, restructured inside the Voyager tool" loading="lazy" />
+                  <figcaption>Iteration 1</figcaption>
+                </figure>
+                <div class="fig-split__text">
+                  <div class="delighter__head">
+                    <span class="delighter__n">01</span>
+                    <p class="ps__h">Changed the flow in the Voyager tool</p>
+                  </div>
+                  <div class="delighter__body">
+                    <ul>
+                      <li>Simplified the information hierarchy.</li>
+                      <li>Leveraged the existing design system.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="delighter">
+              <div class="fig-split fig-split--flip">
+                <figure class="fig-split__shot">
+                  <img src="../assets/img/projects/flightchange/18-recap2.webp" alt="The final payment recap with an unambiguous amount-due summary and fare rules at hand" loading="lazy" />
+                  <figcaption>Final</figcaption>
+                </figure>
+                <div class="fig-split__text">
+                  <div class="delighter__head">
+                    <span class="delighter__n">02</span>
+                    <p class="ps__h">Improved usability with new patterns</p>
+                  </div>
+                  <div class="delighter__body">
+                    <ul>
+                      <li>Worked with the design-system team to simplify the payment summary.</li>
+                      <li>Easy lookup of fare rules.</li>
+                      <li>A clear amount-due summary.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 05 PROTOTYPE ============ -->
+    <section class="narrative">
+      <div class="wrap">
+        <div class="case-head reveal">
+          <span class="eyebrow">Prototype</span>
+          <h3 class="display-sm">The end-to-end change, stitched together</h3>
+        </div>
+        <div class="narrative__body case-body reveal" style="--d:80ms">
+          <p>I built an interactive prototype to pressure-test the full journey — eligibility, selection, price delta, and payment — with partners across Training, Finance, and Fraud before handing off redlines to engineering.</p>
+          <div class="figure-block reveal" style="--d:120ms">
+            <figure><img src="../assets/img/projects/flightchange/19-proto.webp" alt="Interactive prototype of the end-to-end flight-change flow" loading="lazy" /><figcaption>Prototyping the whole flow end to end kept the many stakeholders aligned on one model.</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 06 IMPACT & LEARNINGS ============ -->
+    <section class="narrative narrative--soft">
+      <div class="wrap">
+        <div class="case-head reveal">
+          <span class="eyebrow">Impact &amp; learnings</span>
+          <h3 class="display-sm">Off the phone, onto the screen</h3>
+        </div>
+        <div class="narrative__body case-body reveal" style="--d:80ms">
+          <p>Making the rules visible moved changes to self-service and streamlined the calls that still needed a human — landing <strong>$3.9M in annual cost savings</strong> and <strong>$1.5M in incremental net revenue</strong>, on a modern platform with the legacy tool retired.</p>
+          <div class="learnings reveal" style="--d:120ms">
+            <div class="learn"><span class="learn__n">01</span><p class="learn__t">Collaborate with support first-hand to <strong>understand user needs and challenges</strong> before designing.</p></div>
+            <div class="learn"><span class="learn__n">02</span><p class="learn__t">Regular standups and buddy testing with devs enable <strong>far better collaboration</strong> and fewer surprises.</p></div>
+            <div class="learn"><span class="learn__n">03</span><p class="learn__t">Complex, policy-heavy flows <strong>demand end-to-end orchestration</strong> — you can't fix them a screen at a time.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RELATED PROJECTS ============ -->
+    <section class="related">
+      <div class="wrap">
+        <div class="related__head reveal">
+          <div>
+            <span class="eyebrow">Keep exploring</span>
+            <h2 class="display-md">More selected work</h2>
+          </div>
+        </div>
+        <div class="related__viewport">
+          <button class="related__arrow related__arrow--prev" aria-label="Previous project">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <div class="related__grid" id="relatedTrack">
+            <a class="rcard reveal" href="pitch-parrot.html" style="--card:#faf9f6">
+              <figure class="rcard__shot"><img src="../assets/img/heroes/Freelance.webp" alt="Product demo creation platform with AI — Pitch Parrot" loading="lazy" /></figure>
+              <div class="rcard__meta"><span class="rcard__tag">Pitch Parrot</span><h3 class="rcard__title">Product demo creation platform with AI</h3><p class="rcard__desc">An AI co-pilot that drafts personalized, on-brand sales demos in minutes.</p><span class="rcard__link">View case study <span class="arrow">→</span></span></div>
+            </a>
+            <a class="rcard reveal" href="chargepoint-access.html" style="--card:#f0eee7;--d:80ms">
+              <figure class="rcard__shot"><img src="../assets/img/heroes/AccessManagementHero.webp" alt="Access management for EV charging — ChargePoint" loading="lazy" /></figure>
+              <div class="rcard__meta"><span class="rcard__tag">ChargePoint</span><h3 class="rcard__title">Access management for EV charging</h3><p class="rcard__desc">A self-service admin platform that lifted subscription revenue 45%.</p><span class="rcard__link">View case study <span class="arrow">→</span></span></div>
+            </a>
+            <a class="rcard reveal" href="chewy-ai-portraits.html" style="--card:#ffffff;--d:160ms">
+              <figure class="rcard__shot"><img src="../assets/img/heroes/AIPetPortrait.webp" alt="AI pet portraits — Chewy" loading="lazy" /></figure>
+              <div class="rcard__meta"><span class="rcard__tag">Chewy</span><h3 class="rcard__title">AI pet portraits</h3><p class="rcard__desc">A holiday AI moment that lifted app downloads 23%.</p><span class="rcard__link">View case study <span class="arrow">→</span></span></div>
+            </a>
+            <a class="rcard reveal" href="chargepoint-service-pro.html" style="--card:#faf9f6">
+              <figure class="rcard__shot"><img src="../assets/img/heroes/ServicePro.webp" alt="Service Pro app — ChargePoint" loading="lazy" /></figure>
+              <div class="rcard__meta"><span class="rcard__tag">ChargePoint</span><h3 class="rcard__title">Service Pro app</h3><p class="rcard__desc">A field app for installers that helped win the Toyota deal.</p><span class="rcard__link">View case study <span class="arrow">→</span></span></div>
+            </a>
+            <!-- Sync with PayPal card hidden for now -->
+          </div>
+          <button class="related__arrow related__arrow--next" aria-label="Next project">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+        <div class="related__dots" aria-hidden="true"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" id="contact">
+    <div class="wrap">
+      <div class="footer__top">
+        <div class="footer__lead">
+          <span class="eyebrow footer__eyebrow">Get in touch</span>
+          <h2 class="display-lg footer__headline">Feel free to hit me up. I'm looking forward to hearing from you.</h2>
+        </div>
+        <div class="footer__social">
+          <a class="footer__icon footer__icon--email" data-email-copy href="mailto:shreyaseechand@gmail.com" aria-label="Email Shreyasee">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          <span class="copy-tip" role="status" aria-live="polite"></span>
+          </a>
+          <a class="footer__icon" href="https://www.linkedin.com/in/shreyasee-chand-67780a19/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.4 8.65 21 11 21 14.1V21h-4v-6.1c0-1.46-.03-3.33-2.03-3.33-2.03 0-2.34 1.58-2.34 3.22V21H9V9Z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© Shreyasee Chand 2026</span>
+        <span>Handcrafted with care, powered by AI</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../css/shared.js"></script>
+</body>
+</html>

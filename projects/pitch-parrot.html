@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pitch Parrot — Product demo creation platform with AI · Shreyasee Chand</title>
+  <meta name="description" content="Case study: designing Pitch Parrot, an AI assistant that helps sales reps create personalized, high-quality product demos in minutes — without depending on a sales engineer. By Shreyasee Chand." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/shared.css" />
+</head>
+<body id="top">
+
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <div class="wrap nav__inner">
+      <a class="brand" href="../index.html#top" aria-label="Shreyasee Chand — home">
+        <img class="brand__logo" src="../assets/img/logos/PortfolioLogo1.gif" alt="Shreyasee Chand" />
+      </a>
+      <nav class="nav__menu" aria-label="Primary">
+        <a class="nav__link" href="../index.html#work">Work</a>
+        <a class="nav__link" href="../index.html#about">About</a>
+        <a class="nav__link" href="../index.html#contact">Contact</a>
+      </nav>
+      <div class="nav__right">
+        <a class="nav__icon" href="https://www.linkedin.com/in/shreyasee-chand-67780a19/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.4 8.65 21 11 21 14.1V21h-4v-6.1c0-1.46-.03-3.33-2.03-3.33-2.03 0-2.34 1.58-2.34 3.22V21H9V9Z"/></svg>
+        </a>
+        <a class="nav__icon nav__icon--email" data-email-copy href="mailto:shreyaseechand@gmail.com" aria-label="Email Shreyasee"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span class="copy-tip" role="status" aria-live="polite"></span></a>
+        <button class="nav__burger" data-sheet-open aria-label="Open menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- mobile sheet -->
+  <div class="sheet" id="sheet">
+    <div class="sheet__head">
+      <span class="brand"><img class="brand__logo" src="../assets/img/logos/PortfolioLogo1.gif" alt="Shreyasee Chand" /></span>
+      <button class="sheet__close" data-sheet-close aria-label="Close menu">&times;</button>
+    </div>
+    <a class="nav__link" href="../index.html#work" data-sheet-close>Work</a>
+    <a class="nav__link" href="../index.html#about" data-sheet-close>About</a>
+    <a class="nav__link" href="../index.html#contact" data-sheet-close>Contact</a>
+  </div>
+
+  <main>
+    <!-- ============ PROJECT HERO ============ -->
+    <section class="project-hero">
+      <div class="wrap">
+        <div class="project-hero__grid">
+          <div class="project-hero__text">
+            <div class="project-hero__eyebrow reveal">
+              <span class="eyebrow">Pitch Parrot</span>
+              <span class="dot"></span>
+              <span class="eyebrow">Founding Designer</span>
+            </div>
+            <h1 class="display-xl reveal" style="--d:80ms">Product demo creation platform with AI</h1>
+            <p class="project-hero__sub lead reveal" style="--d:160ms">Helps sales teams create personalized, high-quality product demos faster, dropping time to value about 80%</p>
+          </div>
+          <div class="project-hero__media reveal" style="--panel:#f0eee7;--d:120ms">
+            <img src="../assets/img/heroes/Freelance.webp" alt="Pitch Parrot — Product demo creation platform with AI" />
+            <div class="project-hero__overlay" aria-hidden="true">
+              <div class="project-hero__eyebrow">
+                <span class="eyebrow">Pitch Parrot</span>
+                <span class="dot"></span>
+                <span class="eyebrow">Founding Designer</span>
+              </div>
+              <p class="project-hero__title-ov">Product demo creation platform with AI</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STAT BAND ============ -->
+    <section class="stat-band stat-band--center">
+      <div class="wrap reveal">
+        <span class="eyebrow" style="display:block; margin-bottom:20px;">Impact</span>
+        <div class="stat-band__grid">
+          <div class="stat-band__item"><span class="stat-band__n">3</span><span class="stat-band__l">Design partners landed</span></div>
+          <div class="stat-band__item"><span class="stat-band__n">~80%</span><span class="stat-band__l">Drop in time to value</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTEXT ============ -->
+    <section class="narrative">
+      <div class="wrap">
+        <div class="case-head reveal"><span class="eyebrow">Context</span></div>
+        <div class="narrative__body case-body reveal" style="--d:80ms">
+          <p class="lead">Today, B2B software teams ship new features at an increasing pace — but sales demo creation remains slow and manual. Sales reps often depend on Sales Engineers (SEs) to create and tailor a demo for each prospect, introducing delays, outdated content, and limited scalability.</p>
+          <p>As products become more complex, this dependency reduces visibility into demo quality and impact — directly affecting sales velocity.</p>
+          <div class="p-meta" style="margin-top:32px">
+            <div class="p-meta__item"><div class="p-meta__k">Role</div><div class="p-meta__v">Founding Designer — research to execution</div></div>
+            <div class="p-meta__item"><div class="p-meta__k">Duration</div><div class="p-meta__v">6 months</div></div>
+            <div class="p-meta__item"><div class="p-meta__k">Team</div><div class="p-meta__v">1 PM · 2 developers · 3 innovation partners</div></div>
+            <div class="p-meta__item"><div class="p-meta__k">Focus</div><div class="p-meta__v">Human–AI systems, 0→1</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TARGET AUDIENCE ============ -->
+    <section class="narrative narrative--soft">
+      <div class="wrap">
+        <div class="case-head reveal">
+          <span class="eyebrow">Target audience</span>
+          <h3 class="display-sm">Meet Sheila, the Sales Rep</h3>
+        </div>
+        <div class="narrative__body case-body reveal" style="--d:80ms">
+          <p>Sheila is non-technical and works in time-compressed moments, prepping for a demo between meetings. She constantly interacts with Account Executives, Sales Engineers, and the prospect while demos are repeatedly iterated and layered with technical detail. She needs <strong>speed, confidence, and autonomy</strong> as she pitches the product.</p>
+          <div class="persona reveal" style="--d:100ms">
+            <div class="persona__badge">S</div>
+            <div class="persona__name">Sheila</div>
+            <div class="persona__role">Sales Representative</div>
+            <div class="persona__attrs">
+              <div class="persona__attr"><div class="k">Goal</div><div class="v">Move deals forward to close fast</div></div>
+              <div class="persona__attr"><div class="k">Tasks</div><div class="v">Follow-ups, outreach, momentum, handoffs</div></div>
+              <div class="persona__attr"><div class="k">Success</div><div class="v">Win confidence, deals closed, fewer handoffs</div></div>
+              <div class="persona__attr"><div class="k">Background</div><div class="v">Non-technical</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RESEARCH & INSIGHTS ============ -->
+    <section class="narrative">
+      <div class="wrap">
+        <div class="case-head reveal">
+          <span class="eyebrow">Research &amp; insights</span>
+          <h3 class="display-sm">50+ conversations across the sales ecosystem</h3>
+        </div>
+        <div class="narrative__body case-body reveal" style="--d:80ms">
+          <p>I needed to understand how demos get created during a sales cycle, how reps interact with the key people in the ecosystem, the core use cases, and the most emotional pain points — so I could design for the most impact. I gathered input from <strong>over 50 customers</strong> through interviews and an online survey, across sales engineers, account executives, and sales reps.</p>
+        </div>
+        <div class="case-figs reveal" style="--d:100ms">
+          <figure class="fig-wide"><img src="../assets/img/projects/pitchparrot/PPJourneyMap.webp" alt="Synthesized research findings across the sales ecosystem" loading="lazy" /><figcaption>Synthesizing 50+ conversations into the patterns that shaped the product.</figcaption></figure>
+        </div>
+        <div class="narrative__body case-body reveal">
+          <h3 class="display-sm">Key findings</h3>
+          <ul>
+            <li><strong>Manual process.</strong> Reps depend on SEs to map prospect needs to relevant features, making the SE a bottleneck and dampening momentum. <em>“I feel helpless watching good deals stall.”</em></li>
+            <li><strong>Scattered context.</strong> Context for demos is spread across CRM, call transcripts, notes, prior demos, and docs — creating cognitive overload. <em>“I'm drowning in tools, content, and guesswork.”</em></li>
+            <li><strong>Outdated content.</strong> Demos go stale fast, eroding confidence. <em>“I don't feel credible without an SE. I need to find the right thing fast.”</em></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DESIGN GUIDELINES ============ -->
+    <section class="narrative narrative--soft">
+      <div class="wrap">
+        <div class="case-head reveal">
+          <span class="eyebrow">Design guidelines</span>
+          <h3 class="display-sm">The scenario, and four guidelines</h3>
+        </div>
+        <div class="narrative__body case-body reveal" style="--d:80ms">
+          <p><strong>Scenario.</strong> Sheila has a demo within 24 hours. The qualification and discovery call with the prospect is already done — their pain points, needs, budget, and timeline are captured.</p>
+          <div class="principles reveal" style="--d:120ms">
+            <div class="principle"><div class="principle__n">01</div><div class="principle__t">Speed-first workflow</div><p>Use smart defaults rather than setup — reps are racing the clock.</p></div>
+            <div class="principle"><div class="principle__n">02</div><div class="principle__t">Conversation first, canvas second</div><p>Capture intent and synthesis through a text modality.</p></div>
+            <div class="principle"><div class="principle__n">03</div><div class="principle__t">Design for trust and confidence</div><p>Show what's AI-generated and why it's suggested.</p></div>
+            <div class="principle"><div class="principle__n">04</div><div class="principle__t">Progressive disclosure</div><p>Reveal complexity only when it's needed.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PAINPOINT 1 ============ -->
+    <section class="narrative">
+      <div class="wrap">
+        <div class="case-head reveal">
+          <span class="eyebrow">Painpoint 1</span>
+          <h3 class="display-sm">How can sales reps create demos without relying on SEs?</h3>
+        </div>
+        <div class="narrative__body case-body reveal" style="--d:80ms">
+          <p><strong>Iteration 1 — self-serve demo creation.</strong> The first pass let reps generate a demo on their own.</p>
+        </div>
+        <div class="case-figs reveal" style="--d:100ms">
+          <figure class="fig-wide"><img src="../assets/img/projects/pitchparrot/Pain1Iteration1a.webp" alt="Iteration 1 — self-serve demo creation" loading="lazy" /></figure>
+          <figure class="fig-wide"><img src="../assets/img/projects/pitchparrot/Pain1Iteration1b.webp" alt="Iteration 1 — the demo management view" loading="lazy" /></figure>
+        </div>
+        <div class="narrative__body case-body reveal">
+          <p><strong>Feedback</strong></p>
+          <ul>
+            <li>Reps repeatedly raised trust issues with auto-generated demos. <em>“Just because it's automated doesn't mean I'll use it in front of a customer.”</em></li>
+            <li>They wanted more control and the ability to tweak the narrative.</li>
+            <li>With many demos in flight, they needed an overview/dashboard to keep up.</li>
+          </ul>
+          <p style="margin-top:8px"><strong>Iteration 2 — context-driven demo creation.</strong> I reframed the flow around the rep's context — guided inputs that steer the model — instead of a one-shot generate button.</p>
+        </div>
+        <div class="case-figs reveal" style="--d:100ms">
+          <figure class="fig-wide"><img src="../assets/img/projects/pitchparrot/Pain1Iteration2a.webp" alt="Iteration 2 — context-driven demo creation" loading="lazy" /></figure>
+          <figure class="fig-wide"><img src="../assets/img/projects/pitchparrot/Pain1Iteration2b.webp" alt="Iteration 2 — guided inputs steer the draft" loading="lazy" /></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PAINPOINT 2 ============ -->
+    <section class="narrative narrative--soft">
+      <div class="wrap">
+        <div class="case-head reveal">
+          <span class="eyebrow">Painpoint 2</span>
+          <h3 class="display-sm">How can we help reps trust and confidently send demos without SE support?</h3>
+        </div>
+        <div class="narrative__body case-body reveal" style="--d:80ms">
+          <p><strong>Iteration 1 — human-in-the-loop demo creation for confidence.</strong> Every generated section is reviewable and editable, so reps can trust, tweak, or regenerate.</p>
+        </div>
+        <div class="case-figs reveal" style="--d:100ms">
+          <figure class="fig-wide"><img src="../assets/img/projects/pitchparrot/Pain2Iteration1.webp" alt="Iteration 1 — human-in-the-loop review of generated sections" loading="lazy" /></figure>
+        </div>
+        <div class="narrative__body case-body reveal">
+          <p><strong>Iteration 2 — trust-driven decisions with granular controls.</strong> A deeper layer of controls lets reps shape the narrative and see where the model is inferring vs. citing real data — so they know what to double-check before going live.</p>
+        </div>
+        <div class="case-figs reveal" style="--d:100ms">
+          <figure class="fig-wide"><img src="../assets/img/projects/pitchparrot/Pain2Iteration2a.webp" alt="Iteration 2 — granular controls for narrative and sourcing" loading="lazy" /></figure>
+          <figure class="fig-wide"><img src="../assets/img/projects/pitchparrot/Pain2Iteration2b.webp" alt="Iteration 2 — signals for what's inferred vs. cited" loading="lazy" /></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROTOTYPE ============ -->
+    <section class="narrative">
+      <div class="wrap">
+        <div class="case-head reveal">
+          <span class="eyebrow">Prototype</span>
+          <h3 class="display-sm">The end-to-end workflow</h3>
+        </div>
+        <div class="narrative__body case-body reveal" style="--d:80ms">
+          <p>An interactive prototype of the full demo-building flow — from context to a ready-to-send demo.</p>
+        </div>
+        <div class="case-figs reveal" style="--d:100ms">
+          <figure class="fig-wide"><video autoplay muted loop playsinline preload="metadata" aria-label="Interactive prototype of the Pitch Parrot demo-building workflow"><source src="../assets/img/projects/pitchparrot/PPPrototype.mp4" type="video/mp4" /></video></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CUSTOMER VIEW ============ -->
+    <section class="narrative" style="background:#fff">
+      <div class="wrap">
+        <div class="case-head reveal">
+          <span class="eyebrow">Customer view</span>
+          <h3 class="display-sm">The customer experience with a shared link</h3>
+        </div>
+        <div class="case-figs reveal" style="--d:100ms">
+          <div class="fig-split fig-split--phone fig-split--hug">
+            <figure class="fig-split__shot"><img src="../assets/img/projects/pitchparrot/CustomerView.webp" alt="The customer-facing shared-link view of a generated demo" loading="lazy" /></figure>
+            <div class="fig-split__text">
+              <p>What the prospect sees when they open a demo — the rep's work lands as a polished, on-brand moment.</p>
+              <p>The demo opens on any device with a single shared link — no login, no download. The narrative, visuals, and personalization the rep set up carry through exactly as intended.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LEARNINGS ============ -->
+    <section class="narrative">
+      <div class="wrap">
+        <div class="case-head reveal"><span class="eyebrow">Learnings</span></div>
+        <div class="narrative__body case-body reveal" style="--d:80ms">
+          <div class="learnings reveal" style="--d:120ms">
+            <div class="learn"><span class="learn__n">01</span><p class="learn__t">Think in <strong>scalable primitives</strong> when designing for AI agents.</p></div>
+            <div class="learn"><span class="learn__n">02</span><p class="learn__t"><strong>Pain shows up as workarounds</strong> — watch what people do, not just what they say.</p></div>
+            <div class="learn"><span class="learn__n">03</span><p class="learn__t"><strong>Hide complexity, preserve capability</strong> — so users can act with confidence.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RELATED PROJECTS ============ -->
+    <section class="related">
+      <div class="wrap">
+        <div class="related__head reveal">
+          <div>
+            <span class="eyebrow">Keep exploring</span>
+            <h2 class="display-md">More selected work</h2>
+          </div>
+        </div>
+        <div class="related__viewport">
+          <button class="related__arrow related__arrow--prev" aria-label="Previous project">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <div class="related__grid" id="relatedTrack">
+            <a class="rcard reveal" href="chargepoint-access.html" style="--card:#f0eee7">
+              <figure class="rcard__shot"><img src="../assets/img/heroes/AccessManagementHero.webp" alt="Access management for EV charging — ChargePoint" loading="lazy" /></figure>
+              <div class="rcard__meta"><span class="rcard__tag">ChargePoint</span><h3 class="rcard__title">Access management for EV charging</h3><p class="rcard__desc">A self-service admin platform that lifted subscription revenue 45%.</p><span class="rcard__link">View case study <span class="arrow">→</span></span></div>
+            </a>
+            <a class="rcard reveal" href="expedia-flight-change.html" style="--card:#faf9f6;--d:80ms">
+              <figure class="rcard__shot"><img src="../assets/img/heroes/FlightChange.webp" alt="Flight change — Expedia" loading="lazy" /></figure>
+              <div class="rcard__meta"><span class="rcard__tag">Expedia</span><h3 class="rcard__title">Flight change</h3><p class="rcard__desc">Self-service flight changes that saved $3.9M a year.</p><span class="rcard__link">View case study <span class="arrow">→</span></span></div>
+            </a>
+            <a class="rcard reveal" href="chewy-ai-portraits.html" style="--card:#ffffff;--d:160ms">
+              <figure class="rcard__shot"><img src="../assets/img/heroes/AIPetPortrait.webp" alt="AI pet portraits — Chewy" loading="lazy" /></figure>
+              <div class="rcard__meta"><span class="rcard__tag">Chewy</span><h3 class="rcard__title">AI pet portraits</h3><p class="rcard__desc">A holiday AI moment that lifted app downloads 23%.</p><span class="rcard__link">View case study <span class="arrow">→</span></span></div>
+            </a>
+            <a class="rcard reveal" href="chargepoint-service-pro.html" style="--card:#faf9f6">
+              <figure class="rcard__shot"><img src="../assets/img/heroes/ServicePro.webp" alt="Service Pro app — ChargePoint" loading="lazy" /></figure>
+              <div class="rcard__meta"><span class="rcard__tag">ChargePoint</span><h3 class="rcard__title">Service Pro app</h3><p class="rcard__desc">A field app for installers that helped win the Toyota deal.</p><span class="rcard__link">View case study <span class="arrow">→</span></span></div>
+            </a>
+            <!-- Sync with PayPal card hidden for now -->
+          </div>
+          <button class="related__arrow related__arrow--next" aria-label="Next project">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+        <div class="related__dots" aria-hidden="true"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" id="contact">
+    <div class="wrap">
+      <div class="footer__top">
+        <div class="footer__lead">
+          <span class="eyebrow footer__eyebrow">Get in touch</span>
+          <h2 class="display-lg footer__headline">Feel free to hit me up. I'm looking forward to hearing from you.</h2>
+        </div>
+        <div class="footer__social">
+          <a class="footer__icon footer__icon--email" data-email-copy href="mailto:shreyaseechand@gmail.com" aria-label="Email Shreyasee">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          <span class="copy-tip" role="status" aria-live="polite"></span>
+          </a>
+          <a class="footer__icon" href="https://www.linkedin.com/in/shreyasee-chand-67780a19/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.4 8.65 21 11 21 14.1V21h-4v-6.1c0-1.46-.03-3.33-2.03-3.33-2.03 0-2.34 1.58-2.34 3.22V21H9V9Z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© Shreyasee Chand 2026</span>
+        <span>Handcrafted with care, powered by AI</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../css/shared.js"></script>
+</body>
+</html>

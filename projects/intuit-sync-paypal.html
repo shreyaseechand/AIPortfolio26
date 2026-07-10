@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sync with PayPal — Intuit · Shreyasee Chand</title>
+  <meta name="description" content="Case study: redesigning Sync with PayPal for Intuit QuickBooks — a hassle-free setup that helps accountants securely import PayPal transactions, using the Laws of Simplicity to tame cross-company complexity. By Shreyasee Chand." />
+  <!-- Hidden for now: nothing on the site links here. Remove to relist. -->
+  <meta name="robots" content="noindex, nofollow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/shared.css" />
+</head>
+<body id="top">
+
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <div class="wrap nav__inner">
+      <a class="brand" href="../index.html#top" aria-label="Shreyasee Chand — home">
+        <img class="brand__logo" src="../assets/img/logos/PortfolioLogo1.gif" alt="Shreyasee Chand" />
+      </a>
+      <nav class="nav__menu" aria-label="Primary">
+        <a class="nav__link" href="../index.html#work">Work</a>
+        <a class="nav__link" href="../index.html#about">About</a>
+        <a class="nav__link" href="../index.html#contact">Contact</a>
+      </nav>
+      <div class="nav__right">
+        <a class="nav__icon" href="https://www.linkedin.com/in/shreyasee-chand-67780a19/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.4 8.65 21 11 21 14.1V21h-4v-6.1c0-1.46-.03-3.33-2.03-3.33-2.03 0-2.34 1.58-2.34 3.22V21H9V9Z"/></svg>
+        </a>
+        <a class="nav__icon nav__icon--email" data-email-copy href="mailto:shreyaseechand@gmail.com" aria-label="Email Shreyasee"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span class="copy-tip" role="status" aria-live="polite"></span></a>
+        <button class="nav__burger" data-sheet-open aria-label="Open menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- mobile sheet -->
+  <div class="sheet" id="sheet">
+    <div class="sheet__head">
+      <span class="brand"><img class="brand__logo" src="../assets/img/logos/PortfolioLogo1.gif" alt="Shreyasee Chand" /></span>
+      <button class="sheet__close" data-sheet-close aria-label="Close menu">&times;</button>
+    </div>
+    <a class="nav__link" href="../index.html#work" data-sheet-close>Work</a>
+    <a class="nav__link" href="../index.html#about" data-sheet-close>About</a>
+    <a class="nav__link" href="../index.html#contact" data-sheet-close>Contact</a>
+  </div>
+
+  <main>
+    <!-- ============ PROJECT HERO ============ -->
+    <section class="project-hero">
+      <div class="wrap">
+        <div class="project-hero__grid">
+          <div class="project-hero__text">
+            <div class="project-hero__eyebrow reveal">
+              <span class="eyebrow">Intuit</span>
+              <span class="dot"></span>
+              <span class="eyebrow">Senior Product Designer</span>
+            </div>
+            <h1 class="display-xl reveal" style="--d:80ms">Sync with PayPal</h1>
+            <p class="project-hero__sub lead reveal" style="--d:160ms">A seamless experience for accountants to import and manage their PayPal transactions inside QuickBooks.</p>
+          </div>
+          <div class="project-hero__media reveal" style="--panel:#eceae4;--d:120ms">
+            <img src="../assets/img/heroes/SyncWithPayPal.webp" alt="Intuit Sync with PayPal — importing PayPal transactions into QuickBooks" />
+            <div class="project-hero__overlay" aria-hidden="true">
+              <div class="project-hero__eyebrow">
+                <span class="eyebrow">Intuit</span>
+                <span class="dot"></span>
+                <span class="eyebrow">Senior Product Designer</span>
+              </div>
+              <p class="project-hero__title-ov">Sync with PayPal</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STAT BAND ============ -->
+    <section class="stat-band stat-band--center">
+      <div class="wrap reveal">
+        <span class="eyebrow" style="display:block; margin-bottom:20px;">Impact</span>
+        <div class="stat-band__grid">
+          <div class="stat-band__item"><span class="stat-band__n">Intuit × PayPal</span><span class="stat-band__l">Cross-company integration led end to end</span></div>
+          <div class="stat-band__item"><span class="stat-band__n">2 segments</span><span class="stat-band__l">Skilled accountants &amp; novice bookkeepers</span></div>
+          <div class="stat-band__item"><span class="stat-band__n">Beta → GA</span><span class="stat-band__l">Rescued a struggling Beta into a launched product</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 01 OVERVIEW ============ -->
+    <section class="narrative">
+      <div class="wrap">
+        <div class="case-head reveal"><span class="eyebrow">Overview</span></div>
+        <div class="narrative__body case-body reveal" style="--d:80ms">
+          <p class="lead">Intuit's Small Business Group partnered with PayPal to let customers securely pull their sales transactions into QuickBooks Online through an automated plugin. By the time I joined, a Beta existed — and it was struggling.</p>
+          <p>Two problems dominated: a <strong>complicated PayPal-to-QBO account mapping</strong> that made people abandon the setup page, and <strong>lengthy, broken workflows</strong> that made transferring transactions cumbersome. I led design of the entire feature, focused on the customer pain while keeping two companies' teams aligned.</p>
+          <div class="p-meta" style="margin-top:32px">
+            <div class="p-meta__item"><div class="p-meta__k">Role</div><div class="p-meta__v">Senior Product Designer — feature lead</div></div>
+            <div class="p-meta__item"><div class="p-meta__k">Platform</div><div class="p-meta__v">QuickBooks Online</div></div>
+            <div class="p-meta__item"><div class="p-meta__k">Partners</div><div class="p-meta__v">Intuit &amp; PayPal · Content · Engineering</div></div>
+            <div class="p-meta__item"><div class="p-meta__k">Focus</div><div class="p-meta__v">Fintech, data trust, 0→1 setup</div></div>
+          </div>
+          <div class="figure-block reveal" style="--d:120ms">
+            <figure><img src="../assets/img/projects/intuit/01-screen-shot-2016-04-12-at-10.51.21-pm.webp" alt="The struggling Beta setup, with complicated account mapping" loading="lazy" /><figcaption>The Beta I inherited: setup was where customers dropped off.</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 02 RESEARCH ============ -->
+    <section class="narrative narrative--soft">
+      <div class="wrap">
+        <div class="case-head reveal">
+          <span class="eyebrow">Research</span>
+          <h3 class="display-sm">Two very different users, one broken hand-off</h3>
+        </div>
+        <div class="narrative__body case-body reveal" style="--d:80ms">
+          <p>Sitting in on product feedback calls, I found two distinct segments to serve at once:</p>
+          <ul>
+            <li><strong>Skilled accountants</strong> who know bookkeeping cold and want control.</li>
+            <li><strong>Novice users</strong> with no bookkeeping experience who need guidance.</li>
+          </ul>
+          <p>A heuristic evaluation against Nielsen's ten usability principles pinpointed the core failure: <strong>bouncing customers between two companies' systems</strong> — each with its own framework — created friction and abandonment.</p>
+          <div class="figure-block reveal" style="--d:120ms">
+            <figure><img src="../assets/img/projects/intuit/06-image-asset.webp" alt="Analysis of the existing system showing cross-company complexity" loading="lazy" /><figcaption>Mapping the existing system exposed how much complexity lived in the seams between Intuit and PayPal.</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 03 PRINCIPLES ============ -->
+    <section class="narrative">
+      <div class="wrap">
+        <div class="case-head reveal">
+          <span class="eyebrow">Approach</span>
+          <h3 class="display-sm">The Laws of Simplicity, applied</h3>
+        </div>
+        <div class="narrative__body case-body reveal" style="--d:80ms">
+          <p>The guiding principle was simple to say and hard to earn — a <em>clear, intuitive, user-friendly setup</em>. I leaned on the Laws of Simplicity, separating the two kinds of complexity:</p>
+          <div class="principles reveal" style="--d:120ms">
+            <div class="principle"><div class="principle__n">01</div><div class="principle__t">Reduce actual complexity</div><p>Cut real steps and decisions out of the flow first.</p></div>
+            <div class="principle"><div class="principle__n">02</div><div class="principle__t">Then reduce perceived complexity</div><p>Make what remains feel calm, ordered, and understandable.</p></div>
+            <div class="principle"><div class="principle__n">03</div><div class="principle__t">Feature the common case</div><p>Put prominent, frequent use-cases front and center.</p></div>
+            <div class="principle"><div class="principle__n">04</div><div class="principle__t">Rare tasks on demand</div><p>Keep infrequently used tasks available, but out of the way.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 04 THE REDESIGN ============ -->
+    <section class="narrative narrative--soft">
+      <div class="wrap">
+        <div class="case-head reveal">
+          <span class="eyebrow">The redesign</span>
+          <h3 class="display-sm">From a mapping wall to a guided setup</h3>
+        </div>
+        <div class="narrative__body case-body reveal" style="--d:80ms">
+          <div class="ps__row reveal">
+            <div class="ps__col">
+              <span class="ps__tag ps__tag--problem">Problem</span>
+              <p class="ps__h">Account mapping stopped people cold</p>
+              <p>The Beta asked customers to reconcile PayPal and QuickBooks accounts up front — a dense, high-stakes step that sent setup-page abandonment climbing.</p>
+            </div>
+            <div class="ps__col">
+              <span class="ps__tag ps__tag--solution">Solution</span>
+              <p class="ps__h">A simpler, guided flow</p>
+              <p>I reworked setup into a clearer sequence, iterating through wireframes with content and engineering to keep tone and interaction patterns consistent — and specs pixel-perfect.</p>
+            </div>
+          </div>
+          <div class="figure-grid reveal" style="--d:80ms">
+            <figure><img src="../assets/img/projects/intuit/03-w1.webp" alt="Setup wireframe iteration 1" loading="lazy" /><figcaption>Exploring the setup structure — early.</figcaption></figure>
+            <figure><img src="../assets/img/projects/intuit/05-w3.webp" alt="Setup wireframe iteration, later" loading="lazy" /><figcaption>…and refined toward the guided flow.</figcaption></figure>
+          </div>
+          <p style="margin-top:24px"><strong>An educational blank slate.</strong> After setup, customers land on a sales-transactions page with a blank state that teaches the feature and prompts a first step — with entry points to related flows (PayPal expenses, bank transactions) surfaced only when they aren't yet configured.</p>
+          <div class="figure-block reveal" style="--d:120ms">
+            <figure><img src="../assets/img/projects/intuit/07-image-asset.webp" alt="Sales transactions in QuickBooks with an educational blank state" loading="lazy" /><figcaption>The sales-transactions blank slate: it teaches, then gets out of the way.</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 05 OUTCOMES ============ -->
+    <section class="narrative">
+      <div class="wrap">
+        <div class="case-head reveal">
+          <span class="eyebrow">Outcomes &amp; reflection</span>
+          <h3 class="display-sm">An honest, mixed result</h3>
+        </div>
+        <div class="narrative__body case-body reveal" style="--d:80ms">
+          <p>The redesign shipped, and the reception was genuinely mixed — a useful thing to sit with. Customers <strong>appreciated the improved setup</strong> and the granular control over which timeframe of transactions to import. The criticism that remained centered on <strong>accuracy and data-transfer reliability</strong> — largely product and integration issues downstream of design, and exactly the kind of trust problem that a good setup flow can't paper over on its own.</p>
+          <div class="figure-block reveal" style="--d:120ms">
+            <figure><img src="../assets/img/projects/intuit/08-reviews.webp" alt="App store reviews reflecting mixed user sentiment" loading="lazy" /><figcaption>Real reviews — a reminder that in fintech, trust is earned in the data, not just the UI.</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RELATED PROJECTS ============ -->
+    <section class="related">
+      <div class="wrap">
+        <div class="related__head reveal">
+          <div>
+            <span class="eyebrow">Keep exploring</span>
+            <h2 class="display-md">More selected work</h2>
+          </div>
+        </div>
+        <div class="related__viewport">
+          <button class="related__arrow related__arrow--prev" aria-label="Previous project">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <div class="related__grid" id="relatedTrack">
+            <a class="rcard reveal" href="pitch-parrot.html" style="--card:#faf9f6">
+              <figure class="rcard__shot"><img src="../assets/img/heroes/Freelance.webp" alt="Product demo creation platform with AI — Pitch Parrot" loading="lazy" /></figure>
+              <div class="rcard__meta"><span class="rcard__tag">Pitch Parrot</span><h3 class="rcard__title">Product demo creation platform with AI</h3><p class="rcard__desc">An AI co-pilot that drafts personalized, on-brand sales demos in minutes.</p><span class="rcard__link">View case study <span class="arrow">→</span></span></div>
+            </a>
+            <a class="rcard reveal" href="chargepoint-access.html" style="--card:#f0eee7;--d:80ms">
+              <figure class="rcard__shot"><img src="../assets/img/heroes/AccessManagementHero.webp" alt="Access management for EV charging — ChargePoint" loading="lazy" /></figure>
+              <div class="rcard__meta"><span class="rcard__tag">ChargePoint</span><h3 class="rcard__title">Access management for EV charging</h3><p class="rcard__desc">A self-service admin platform that lifted subscription revenue 45%.</p><span class="rcard__link">View case study <span class="arrow">→</span></span></div>
+            </a>
+            <a class="rcard reveal" href="expedia-flight-change.html" style="--card:#faf9f6;--d:160ms">
+              <figure class="rcard__shot"><img src="../assets/img/heroes/FlightChange.webp" alt="Flight change — Expedia" loading="lazy" /></figure>
+              <div class="rcard__meta"><span class="rcard__tag">Expedia</span><h3 class="rcard__title">Flight change</h3><p class="rcard__desc">Self-service flight changes that saved $3.9M a year.</p><span class="rcard__link">View case study <span class="arrow">→</span></span></div>
+            </a>
+            <a class="rcard reveal" href="chewy-ai-portraits.html" style="--card:#ffffff">
+              <figure class="rcard__shot"><img src="../assets/img/heroes/AIPetPortrait.webp" alt="AI pet portraits — Chewy" loading="lazy" /></figure>
+              <div class="rcard__meta"><span class="rcard__tag">Chewy</span><h3 class="rcard__title">AI pet portraits</h3><p class="rcard__desc">A holiday AI moment that lifted app downloads 23%.</p><span class="rcard__link">View case study <span class="arrow">→</span></span></div>
+            </a>
+            <a class="rcard reveal" href="chargepoint-service-pro.html" style="--card:#faf9f6;--d:80ms">
+              <figure class="rcard__shot"><img src="../assets/img/heroes/ServicePro.webp" alt="Service Pro app — ChargePoint" loading="lazy" /></figure>
+              <div class="rcard__meta"><span class="rcard__tag">ChargePoint</span><h3 class="rcard__title">Service Pro app</h3><p class="rcard__desc">A field app for installers that helped win the Toyota deal.</p><span class="rcard__link">View case study <span class="arrow">→</span></span></div>
+            </a>
+          </div>
+          <button class="related__arrow related__arrow--next" aria-label="Next project">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+        <div class="related__dots" aria-hidden="true"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" id="contact">
+    <div class="wrap">
+      <div class="footer__top">
+        <div class="footer__lead">
+          <span class="eyebrow footer__eyebrow">Get in touch</span>
+          <h2 class="display-lg footer__headline">Feel free to hit me up. I'm looking forward to hearing from you.</h2>
+        </div>
+        <div class="footer__social">
+          <a class="footer__icon footer__icon--email" data-email-copy href="mailto:shreyaseechand@gmail.com" aria-label="Email Shreyasee">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          <span class="copy-tip" role="status" aria-live="polite"></span>
+          </a>
+          <a class="footer__icon" href="https://www.linkedin.com/in/shreyasee-chand-67780a19/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.4 8.65 21 11 21 14.1V21h-4v-6.1c0-1.46-.03-3.33-2.03-3.33-2.03 0-2.34 1.58-2.34 3.22V21H9V9Z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© Shreyasee Chand 2026</span>
+        <span>Handcrafted with care, powered by AI</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../css/shared.js"></script>
+</body>
+</html>

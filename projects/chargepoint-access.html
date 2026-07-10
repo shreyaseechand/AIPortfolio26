@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Access management for EV charging — ChargePoint · Shreyasee Chand</title>
+  <meta name="description" content="Case study: redesigning ChargePoint's admin portal into a self-service platform for managing EV charging access and pricing — a 45% lift in subscription revenue and 20% fewer support calls. By Shreyasee Chand." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/shared.css" />
+</head>
+<body id="top">
+
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <div class="wrap nav__inner">
+      <a class="brand" href="../index.html#top" aria-label="Shreyasee Chand — home">
+        <img class="brand__logo" src="../assets/img/logos/PortfolioLogo1.gif" alt="Shreyasee Chand" />
+      </a>
+      <nav class="nav__menu" aria-label="Primary">
+        <a class="nav__link" href="../index.html#work">Work</a>
+        <a class="nav__link" href="../index.html#about">About</a>
+        <a class="nav__link" href="../index.html#contact">Contact</a>
+      </nav>
+      <div class="nav__right">
+        <a class="nav__icon" href="https://www.linkedin.com/in/shreyasee-chand-67780a19/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.4 8.65 21 11 21 14.1V21h-4v-6.1c0-1.46-.03-3.33-2.03-3.33-2.03 0-2.34 1.58-2.34 3.22V21H9V9Z"/></svg>
+        </a>
+        <a class="nav__icon nav__icon--email" data-email-copy href="mailto:shreyaseechand@gmail.com" aria-label="Email Shreyasee"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span class="copy-tip" role="status" aria-live="polite"></span></a>
+        <button class="nav__burger" data-sheet-open aria-label="Open menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- mobile sheet -->
+  <div class="sheet" id="sheet">
+    <div class="sheet__head">
+      <span class="brand"><img class="brand__logo" src="../assets/img/logos/PortfolioLogo1.gif" alt="Shreyasee Chand" /></span>
+      <button class="sheet__close" data-sheet-close aria-label="Close menu">&times;</button>
+    </div>
+    <a class="nav__link" href="../index.html#work" data-sheet-close>Work</a>
+    <a class="nav__link" href="../index.html#about" data-sheet-close>About</a>
+    <a class="nav__link" href="../index.html#contact" data-sheet-close>Contact</a>
+  </div>
+
+  <main>
+    <!-- ============ PROJECT HERO ============ -->
+    <section class="project-hero">
+      <div class="wrap">
+        <div class="project-hero__grid">
+          <div class="project-hero__text">
+            <div class="project-hero__eyebrow reveal">
+              <span class="eyebrow">ChargePoint</span>
+              <span class="dot"></span>
+              <span class="eyebrow">Lead Product Designer</span>
+            </div>
+            <h1 class="display-xl reveal" style="--d:80ms">Access management for EV charging</h1>
+            <p class="project-hero__sub lead reveal" style="--d:160ms">Simplified how admins configure EV charging access, pricing, and driver eligibility reducing setup related support tickets by 30%</p>
+          </div>
+          <div class="project-hero__media reveal" style="--panel:#eef0ea;--d:120ms">
+            <img src="../assets/img/heroes/AccessManagementHero.webp" alt="ChargePoint access management — policy-based control for EV charging" />
+            <div class="project-hero__overlay" aria-hidden="true">
+              <div class="project-hero__eyebrow">
+                <span class="eyebrow">ChargePoint</span>
+                <span class="dot"></span>
+                <span class="eyebrow">Lead Product Designer</span>
+              </div>
+              <p class="project-hero__title-ov">Access management for EV charging</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STAT BAND ============ -->
+    <section class="stat-band stat-band--center">
+      <div class="wrap reveal">
+        <span class="eyebrow" style="display:block; margin-bottom:20px;">Impact</span>
+        <div class="stat-band__grid">
+          <div class="stat-band__item"><span class="stat-band__n">30%</span><span class="stat-band__l">Reduction in support tickets</span></div>
+          <div class="stat-band__item"><span class="stat-band__n">+45%</span><span class="stat-band__l">Increase in subscription revenue</span></div>
+          <div class="stat-band__item"><span class="stat-band__n">1 system</span><span class="stat-band__l">Unified design system across admin, support &amp; driver apps</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 01 OVERVIEW ============ -->
+    <section class="narrative">
+      <div class="wrap">
+        <div class="case-head reveal"><span class="eyebrow">Overview</span></div>
+        <div class="narrative__body case-body reveal" style="--d:80ms">
+          <p class="lead">ChargePoint's admin portal was critical for workplaces to manage access on EV charging stations and help drivers use those stations. Over time it had grown into a powerful but complex, fragmented tool with outdated patterns. It worked well for power users like support agents who knew where everything lived, but left everyday station admins struggling with even the most basic tasks — like setting access policies and approving drivers.</p>
+          <p>This led to an operational bottleneck: support was swamped with <strong>20k setup-related cases</strong>, and stations took <strong>up to 6 months</strong> before becoming available to drivers. My goal was to redesign the admin portal into streamlined, scalable workflows that help admins effortlessly set <strong>who can charge, when, and at what price</strong> — ensuring drivers get reliable information about charging access. The portal was built on legacy code soon to be retired, so all new development happened in a new framework, which we took as an opportunity to create a shared design system.</p>
+          <div class="p-meta" style="margin-top:32px">
+            <div class="p-meta__item">
+              <div class="p-meta__k">Role</div>
+              <div class="p-meta__v">End-to-end design; research strategy &amp; methods; core patterns &amp; components</div>
+            </div>
+            <div class="p-meta__item">
+              <div class="p-meta__k">Duration</div>
+              <div class="p-meta__v">6 months</div>
+            </div>
+            <div class="p-meta__item">
+              <div class="p-meta__k">Team</div>
+              <div class="p-meta__v">2 Software PMs · 20+ developers (web, iOS, Android)</div>
+            </div>
+            <div class="p-meta__item">
+              <div class="p-meta__k">Partners</div>
+              <div class="p-meta__v">Support, Customer Relations</div>
+            </div>
+          </div>
+          <div class="figure-block reveal" style="--d:120ms">
+            <figure><img src="../assets/img/projects/access-management/02-screen-shot-2025-11-16-at-5.32.16-pm.webp" alt="The legacy admin portal — a fragmented, tab-heavy configuration surface" loading="lazy" /><figcaption>The starting point: a capable but fragmented portal where configuring one program meant hopping between disconnected screens.</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 02 RESEARCH ============ -->
+    <section class="narrative narrative--soft">
+      <div class="wrap">
+        <div class="case-head reveal">
+          <span class="eyebrow">Research</span>
+          <h3 class="display-sm">Three kinds of admin, one fragile chain</h3>
+        </div>
+        <div class="narrative__body case-body reveal" style="--d:80ms">
+          <p>I mapped the ecosystem around every charging program and found three users depending on the same setup:</p>
+          <ul>
+            <li><strong>Novice admins</strong> — new to charging programs.</li>
+            <li><strong>Advanced admins</strong> — need bulk actions to efficiently operate at scale.</li>
+            <li><strong>EV drivers</strong> — need the app to reliably show the right access and pricing set by admins.</li>
+          </ul>
+          <p>Delays and usability errors while setting up station charging policies cascaded into <strong>stranded EV drivers desperately looking for a charge, angry driver messages and emails to admins, and HR escalations.</strong> The admin portal let admins create station and driver groups and apply different policies to them — access hours, pricing shown in-app, driver eligibility, and station visibility.</p>
+          <div class="figure-block reveal" style="--d:120ms">
+            <figure><img src="../assets/img/projects/access-management/04-process.webp" alt="Existing process map of the fragmented admin configuration workflow" loading="lazy" /><figcaption>Mapping the existing process surfaced how many disconnected steps a single program took to set up.</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 03 PRINCIPLES ============ -->
+    <section class="narrative">
+      <div class="wrap">
+        <div class="case-head reveal">
+          <span class="eyebrow">Design principles</span>
+          <h3 class="display-sm">Four rules to guide the redesign</h3>
+        </div>
+        <div class="narrative__body case-body reveal" style="--d:80ms">
+          <div class="principles reveal" style="--d:120ms">
+            <div class="principle"><div class="principle__n">01</div><div class="principle__t">Unify the setup</div><p>One workflow instead of fragmented tabs.</p></div>
+            <div class="principle"><div class="principle__n">02</div><div class="principle__t">Empower self-service</div><p>Provide contextual help and smart defaults when possible.</p></div>
+            <div class="principle"><div class="principle__n">03</div><div class="principle__t">Connected systems</div><p>Reflect admin actions instantly across driver and support touch points.</p></div>
+            <div class="principle"><div class="principle__n">04</div><div class="principle__t">Progressive clarity</div><p>Surface only what's relevant for the user's experience level.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 04 SOLUTIONS (problem → solution) ============ -->
+    <section class="narrative narrative--soft">
+      <div class="wrap">
+        <div class="case-head reveal">
+          <span class="eyebrow">The solution</span>
+          <h3 class="display-sm">Three problems, redesigned end to end</h3>
+        </div>
+        <div class="narrative__body case-body reveal" style="--d:80ms">
+          <div class="fig-split reveal">
+            <figure class="fig-split__shot"><img src="../assets/img/projects/access-management/05-screen-shot-2025-09-19-at-3.15.30-pm.webp" alt="The old multi-tab configuration, split across isolated screens" loading="lazy" /></figure>
+            <div class="fig-split__text">
+              <span class="ps__tag ps__tag--problem">Problem 01</span>
+              <p class="ps__h">Hopping across tabs to set up hours, pricing and eligibility</p>
+              <p>Admins needed to move between four disconnected screens — each living in its own tab — to configure a single charging program. It resulted in knowledge gaps and workflow gaps.</p>
+            </div>
+          </div>
+          <div class="fig-split fig-split--flip reveal" style="--d:80ms">
+            <figure class="fig-split__shot"><img src="../assets/img/projects/access-management/06-rasetup.webp" alt="The redesigned unified setup form with expandable policy sections" loading="lazy" /></figure>
+            <div class="fig-split__text">
+              <span class="ps__tag ps__tag--solution">Solution</span>
+              <p class="ps__h">A streamlined single-form workflow to set up all the policies</p>
+              <p>Introduced progressive form patterns where each policy — hours, pricing, eligibility — expands with helpful defaults. Enabled bulk actions for large-scale admin operations.</p>
+            </div>
+          </div>
+
+          <div class="fig-split reveal">
+            <figure class="fig-split__shot"><img src="../assets/img/projects/access-management/07-screen-shot-2025-09-19-at-3.08.27-pm.webp" alt="The old pricing configuration, dense and hard to reason about" loading="lazy" /></figure>
+            <div class="fig-split__text">
+              <span class="ps__tag ps__tag--problem">Problem 02</span>
+              <p class="ps__h">Multi-level pricing was the most complex and confusing</p>
+              <p>Multilayer pricing — peak, off-peak, idle, employee vs. guest tiers — was powerful but intimidating. It created a high dependency on support, who helped admins break even or get a competitive edge.</p>
+            </div>
+          </div>
+          <div class="fig-split fig-split--flip reveal" style="--d:80ms">
+            <figure class="fig-split__shot"><img src="../assets/img/projects/access-management/08-rapricing.webp" alt="The redesigned pricing flow with inline guidance and benchmarks" loading="lazy" /></figure>
+            <div class="fig-split__text">
+              <span class="ps__tag ps__tag--solution">Solution</span>
+              <p class="ps__h">A self-serve experience with contextual help</p>
+              <p>Inline explanations, examples, and benchmark comparisons (e.g., "what similar businesses charge") so admins could price confidently on their own.</p>
+            </div>
+          </div>
+
+          <div class="fig-split reveal">
+            <figure class="fig-split__shot"><img src="../assets/img/projects/access-management/09-screen-shot-2025-09-19-at-3.41.55-pm.webp" alt="The old driver-approval mechanism relying on shareable codes" loading="lazy" /></figure>
+            <div class="fig-split__text">
+              <span class="ps__tag ps__tag--problem">Problem 03</span>
+              <p class="ps__h">A time-consuming manual driver-approval process</p>
+              <p>Admins preferred a hands-off way to add drivers, but auto-approval made the network secret behind code numbers — hard for drivers to find, and hard to track if codes were misused or leaked, since anyone with a code was added automatically. So admins fell back to slow manual approval. Workplaces needed "employee-first" rules.</p>
+            </div>
+          </div>
+          <div class="fig-split fig-split--flip reveal" style="--d:80ms">
+            <figure class="fig-split__shot"><video autoplay muted loop playsinline preload="metadata" aria-label="Animated demo of the smart driver-eligibility and auto-approval flow"><source src="../assets/img/projects/access-management/10-adobe-express-raeligibility.mp4" type="video/mp4" /></video></figure>
+            <div class="fig-split__text">
+              <span class="ps__tag ps__tag--solution">Solution</span>
+              <p class="ps__h">Flexible approval automation</p>
+              <p>Auto-approve trusted groups, while keeping manual review options for others. Admins gained confidence and time back.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 05 DESIGN SYSTEM ============ -->
+    <section class="narrative">
+      <div class="wrap">
+        <div class="case-head reveal">
+          <span class="eyebrow">Design system</span>
+          <h3 class="display-sm">One taxonomy across three surfaces</h3>
+        </div>
+        <div class="narrative__body case-body reveal" style="--d:80ms">
+          <p>With the legacy codebase being retired, I created and documented a unified design system for admins, support teams, and EV drivers. Shared taxonomy, patterns, and reusable components made the system scalable and increased product velocity. I detailed implementation notes in Confluence and shared my organized Figma files with developers.</p>
+          <div class="figure-block reveal" style="--d:120ms">
+            <figure><img src="../assets/img/projects/access-management/11-designsystem.webp" alt="The unified design system — shared components and patterns across admin, support, and driver apps" loading="lazy" /><figcaption>A shared system so a change in the admin portal reads consistently in the driver app and support tools.</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 06 CROSS-PLATFORM IMPACT ============ -->
+    <section class="narrative narrative--soft">
+      <div class="wrap">
+        <div class="case-head reveal">
+          <span class="eyebrow">Cross-platform impact</span>
+          <h3 class="display-sm">Admin decisions, visible in the driver app</h3>
+        </div>
+        <div class="narrative__body case-body reveal" style="--d:80ms">
+          <p>The changes in the admin portal opened up opportunities to show richer information in the driver app, which helped drivers:</p>
+          <ul>
+            <li>Easily find eligible stations they can charge at.</li>
+            <li>Trust the app.</li>
+            <li>Easily request access to start a charge.</li>
+          </ul>
+          <div class="phone-row phone-row--1 reveal" style="--d:120ms">
+            <figure>
+              <div class="shot">
+                <video autoplay muted loop playsinline preload="metadata" aria-label="The driver app showing station eligibility, pricing set by the workplace, and a request-access flow to start a charge">
+                  <source src="../assets/img/projects/access-management/DriverConnections.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <figcaption>Drivers had misinterpreted that pricing was set by ChargePoint, so we added help text to convey it was set by the workplace.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 07 IMPACT ============ -->
+    <section class="narrative">
+      <div class="wrap">
+        <div class="case-head reveal">
+          <span class="eyebrow">Impact &amp; reflection</span>
+          <h3 class="display-sm">A self-service platform admins trust</h3>
+        </div>
+        <div class="narrative__body case-body reveal" style="--d:80ms">
+          <p>The redesign turned Access Management from a support-heavy system into a self-service platform — a <strong>45% increase in subscription revenue</strong> and a <strong>20% reduction in support call volume</strong>. Admins regained control, drivers gained clarity, and support teams could focus on growth instead of troubleshooting.</p>
+          <div class="pullquote reveal" style="--d:120ms">
+            <p>Simplicity isn't about removing features — it's about aligning systems with human expectations. Designing for admins meant designing trust into every decision.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RELATED PROJECTS ============ -->
+    <section class="related">
+      <div class="wrap">
+        <div class="related__head reveal">
+          <div>
+            <span class="eyebrow">Keep exploring</span>
+            <h2 class="display-md">More selected work</h2>
+          </div>
+        </div>
+        <div class="related__viewport">
+          <button class="related__arrow related__arrow--prev" aria-label="Previous project">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <div class="related__grid" id="relatedTrack">
+            <a class="rcard reveal" href="pitch-parrot.html" style="--card:#faf9f6">
+              <figure class="rcard__shot"><img src="../assets/img/heroes/Freelance.webp" alt="Product demo creation platform with AI — Pitch Parrot" loading="lazy" /></figure>
+              <div class="rcard__meta"><span class="rcard__tag">Pitch Parrot</span><h3 class="rcard__title">Product demo creation platform with AI</h3><p class="rcard__desc">An AI co-pilot that drafts personalized, on-brand sales demos in minutes.</p><span class="rcard__link">View case study <span class="arrow">→</span></span></div>
+            </a>
+            <a class="rcard reveal" href="expedia-flight-change.html" style="--card:#faf9f6;--d:80ms">
+              <figure class="rcard__shot"><img src="../assets/img/heroes/FlightChange.webp" alt="Flight change — Expedia" loading="lazy" /></figure>
+              <div class="rcard__meta"><span class="rcard__tag">Expedia</span><h3 class="rcard__title">Flight change</h3><p class="rcard__desc">Self-service flight changes that saved $3.9M a year.</p><span class="rcard__link">View case study <span class="arrow">→</span></span></div>
+            </a>
+            <a class="rcard reveal" href="chewy-ai-portraits.html" style="--card:#ffffff;--d:160ms">
+              <figure class="rcard__shot"><img src="../assets/img/heroes/AIPetPortrait.webp" alt="AI pet portraits — Chewy" loading="lazy" /></figure>
+              <div class="rcard__meta"><span class="rcard__tag">Chewy</span><h3 class="rcard__title">AI pet portraits</h3><p class="rcard__desc">A holiday AI moment that lifted app downloads 23%.</p><span class="rcard__link">View case study <span class="arrow">→</span></span></div>
+            </a>
+            <a class="rcard reveal" href="chargepoint-service-pro.html" style="--card:#faf9f6">
+              <figure class="rcard__shot"><img src="../assets/img/heroes/ServicePro.webp" alt="Service Pro app — ChargePoint" loading="lazy" /></figure>
+              <div class="rcard__meta"><span class="rcard__tag">ChargePoint</span><h3 class="rcard__title">Service Pro app</h3><p class="rcard__desc">A field app for installers that helped win the Toyota deal.</p><span class="rcard__link">View case study <span class="arrow">→</span></span></div>
+            </a>
+            <!-- Sync with PayPal card hidden for now -->
+          </div>
+          <button class="related__arrow related__arrow--next" aria-label="Next project">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+        <div class="related__dots" aria-hidden="true"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" id="contact">
+    <div class="wrap">
+      <div class="footer__top">
+        <div class="footer__lead">
+          <span class="eyebrow footer__eyebrow">Get in touch</span>
+          <h2 class="display-lg footer__headline">Feel free to hit me up. I'm looking forward to hearing from you.</h2>
+        </div>
+        <div class="footer__social">
+          <a class="footer__icon footer__icon--email" data-email-copy href="mailto:shreyaseechand@gmail.com" aria-label="Email Shreyasee">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          <span class="copy-tip" role="status" aria-live="polite"></span>
+          </a>
+          <a class="footer__icon" href="https://www.linkedin.com/in/shreyasee-chand-67780a19/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.4 8.65 21 11 21 14.1V21h-4v-6.1c0-1.46-.03-3.33-2.03-3.33-2.03 0-2.34 1.58-2.34 3.22V21H9V9Z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© Shreyasee Chand 2026</span>
+        <span>Handcrafted with care, powered by AI</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../css/shared.js"></script>
+</body>
+</html>
