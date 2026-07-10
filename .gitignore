@@ -1,3 +1,6 @@
 .DS_Store
 *.orig.*
 _archive/
+.vercel
+.env
+.env.local
