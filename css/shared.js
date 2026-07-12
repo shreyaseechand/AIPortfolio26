@@ -123,8 +123,9 @@ document.querySelectorAll('.related__viewport').forEach(viewport => {
   track.addEventListener('click', e => { if (dragging) { e.preventDefault(); e.stopPropagation(); } }, true);
 });
 
-/* Email icons (nav + footer): copy the address on click, and only show the
-   "Copied email address!" tooltip when NO mail app opens (mailto not set). */
+/* Email icons (nav + footer): copy the address on click. The mailto: link is
+   never followed — on iOS without Apple Mail it triggers a "Restore Mail?"
+   App Store dialog — so we always copy and show the tooltip instead. */
 document.querySelectorAll('[data-email-copy]').forEach(link => {
   const tip = link.querySelector('.copy-tip');
   const email = (link.getAttribute('href') || '').replace(/^mailto:/, '').split('?')[0] || 'shreyaseechand@gmail.com';
@@ -147,17 +148,9 @@ document.querySelectorAll('[data-email-copy]').forEach(link => {
       }
     } catch (e) {}
   };
-  link.addEventListener('click', () => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
     copyEmail();
-    let opened = false;
-    const onBlur = () => { opened = true; };
-    const onVis = () => { if (document.hidden) opened = true; };
-    window.addEventListener('blur', onBlur, { once: true });
-    document.addEventListener('visibilitychange', onVis);
-    setTimeout(() => {
-      window.removeEventListener('blur', onBlur);
-      document.removeEventListener('visibilitychange', onVis);
-      if (!opened && document.hasFocus()) showTip();
-    }, 700);
+    showTip();
   });
 });

@@ -719,18 +719,12 @@
         }
       } catch (e) {}
     }
-    link.addEventListener('click', function () {
+    link.addEventListener('click', function (e) {
+      // Never follow the mailto: link — on iOS without Apple Mail installed
+      // it triggers a "Restore Mail?" App Store dialog. Copy instead.
+      e.preventDefault();
       copyEmail();
-      var opened = false;
-      var onBlur = function () { opened = true; };
-      var onVis = function () { if (document.hidden) opened = true; };
-      window.addEventListener('blur', onBlur, { once: true });
-      document.addEventListener('visibilitychange', onVis);
-      setTimeout(function () {
-        window.removeEventListener('blur', onBlur);
-        document.removeEventListener('visibilitychange', onVis);
-        if (!opened && document.hasFocus()) showTip();
-      }, 700);
+      showTip();
     });
   });
   </script>

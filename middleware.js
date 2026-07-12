@@ -13,11 +13,11 @@
 // while locked. Everything else requires a valid session cookie.
 const PUBLIC_PATHS = new Set([
   "/password.html",
+  "/scan.js",
   "/favicon.ico",
   "/assets/img/favicon-32.png",
   "/assets/img/favicon-192.png",
   "/assets/img/apple-touch-icon.png",
-  "/assets/img/FooterBgnd.webp",
 ]);
 
 function isAuthed(request) {
